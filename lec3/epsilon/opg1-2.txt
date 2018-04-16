@@ -1,0 +1,31 @@
+
+Assignment 1: Find the maximum integers
+
+my max int for the while-loop = 2147483647
+my max int for the for-loop = 2147483647
+my max int for the do while loop = 2147483647
+
+The minimum integer is = -2147483648
+
+The value of the machine epsilon for the different variable types is:
+float = 1.19209e-07, double =2.22045e-16, long double =1.0842e-19
+Using for loops yields:
+float = 1.19209e-07, double =2.22045e-16, long double =1
+Using do while loops yields:
+float = 1.19209e-07, double =2.22045e-16, long double =1.0842e-19
+The value of the machine epsilon from the float.h header for the different variables is:
+float =1.19209e-07, double = 2.22045e-16, long double = 1.0842e-19
+
+Assignment 2:  Harmonic series with float and double
+Sum_up_float = 15.403683
+Sum_down_float is 18.807919
+The difference stems from the finite precision of the float variable
+This series is a harmonic series and it diverges
+Sum_up_double = 21.3716
+Sum_down_double is 21.3716
+This result is much closer since the 'double' variable has twice as many digits
+
+
+Assignment 3: relative precision
+Using a=3, b=3.004, tau=0.1, epsilon=0.01, the function returns: 1
+Using a=5, b=10, tau=0.1, epsilon=0.01, the function returns: 0
