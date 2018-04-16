@@ -1,0 +1,5 @@
+
+Now I calcualte the complex valued problems:
+Complex exponential of  0.000000+1.000000i is 0.540302+0.841471i
+Complex exponmential of 0.000000+3.141593i is -1.00+0.00i
+  0.000000+1.000000i to the power of e is -0.428220-0.90i

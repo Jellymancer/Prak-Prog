@@ -1,0 +1,7 @@
+
+ Assignment 2: finding maximal digits
+Printing a long number x=0.1111... using: double, float and long double gives:
+float: x=0.1111111119389533996582031
+double: x=0.1111111111111111049432054
+log double: x=0.1111111111111111111096053
+The place where the digits differ from 1 marks the maximum size of the variable
