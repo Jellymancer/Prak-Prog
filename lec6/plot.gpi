@@ -1,0 +1,5 @@
+set term svg size 800,600 background rgb "white";
+set output "plot.svg";
+
+plot "out.io.txt" with points title "stdio", "out.cmd.txt" with points title "cmdline";
+
