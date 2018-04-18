@@ -1,0 +1,8 @@
+
+set term png; 
+set out "final.png"; 
+set title "Experimental data for activity of radioactive isotope with best fit" 
+set tics out;
+set xlabel "t [unit]"; 
+set ylabel "A [1/unit]"; 
+plot "exp.dat"  with errorbars title "experimental data", "fit.dat"  with lines title "Best fit" \
