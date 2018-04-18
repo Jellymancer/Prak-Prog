@@ -1,0 +1,6 @@
+set term svg size 800,600 background rgb "white"
+set out "qm.svg"
+set grid
+set xlabel "alpha"
+set ylabel "E"
+plot[0:5][0:3] "qm.dat" with lines title "Energy as function of varational parameter alpha"
