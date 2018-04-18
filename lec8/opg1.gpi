@@ -1,0 +1,8 @@
+set term pdf
+set ou "opg1.pdf"
+set grid
+set xlabel "x"
+set ylabel "y"
+set tics out
+set key bottom
+plot [0:3][0:1] "opg1.dat" with lines title "solution do diff equation"
