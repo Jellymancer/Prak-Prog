@@ -5,12 +5,12 @@ PLOTTER = gnuplot
 
 
 
-show: main final.png
-	xdg-open final.png
+show: main final.svg
+	xdg-open final.svg
 	cat data.txt
 
 
-final.png:  plot.gpi
+final.svg:  plot.gpi
 	gnuplot plot.gpi
 
 main: ls
@@ -22,4 +22,4 @@ ls: ls.o
 .PHONEY: clean
 
 clean:
-	-rm *.txt *.o ls fit.dat
+	-rm *.txt *.o ls fit.dat *.svg

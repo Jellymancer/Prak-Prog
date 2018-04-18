@@ -1,6 +1,6 @@
 
-set term png; 
-set out "final.png"; 
+set term svg size 800,600 background rgb "white"; 
+set out "final.svg"; 
 set title "Experimental data for activity of radioactive isotope with best fit" 
 set tics out;
 set xlabel "t [unit]"; 
