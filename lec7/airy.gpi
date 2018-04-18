@@ -1,0 +1,7 @@
+set terminal svg size 800,600 background rgb "white"
+set output "airy.svg"
+set xlabel "x"
+set ylabel "y"
+
+
+plot "airy.data" using 1:2 with lines title "Ai(x)", "airy.data" using 1:3 with lines title "Bi(x)"
