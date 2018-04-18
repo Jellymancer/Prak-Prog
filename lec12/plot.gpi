@@ -1,0 +1,8 @@
+
+set term pdf; 
+set out "final.pdf";
+set title "Error function plot" 
+set tics out;
+set xlabel "x"; 
+set ylabel "erf(x)"; 
+plot [-8:8][-2:2] "data.txt"  with lines title "errorfunction"
