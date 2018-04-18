@@ -1,0 +1,8 @@
+
+set term svg size 800,600 background rgb "white"; 
+set out "final.svg"; 
+set title "Hydrogen shooting method solution to F_{epsilon}(r_{max})=0"; 
+set tics out; 
+set xlabel "r [a_0]"; 
+set ylabel "F_{epsilon}(r)"; 
+plot "data.txt" using 1:2 with lines title "r_{max}=8", "data.txt" using 1:3 with points title "Analytic solution" \

@@ -1,0 +1,24 @@
+iterations =   0 x = 20.000 y=20.000 dfdy = 0.000e+00 dfdx=7.992e+05
+iterations =   1 x = 13.335 y=13.335 dfdy = -7.067e-11 dfdx=2.368e+05
+iterations =   2 x = 10.529 y=10.529 dfdy = 0.000e+00 dfdx=1.165e+05
+iterations =   3 x = 7.811 y=7.811 dfdy = 0.000e+00 dfdx=4.754e+04
+iterations =   4 x = 5.937 y=5.937 dfdy = 0.000e+00 dfdx=2.087e+04
+iterations =   5 x = 4.471 y=4.471 dfdy = 0.000e+00 dfdx=8.907e+03
+iterations =   6 x = 3.380 y=3.380 dfdy = 0.000e+00 dfdx=3.843e+03
+iterations =   7 x = 2.552 y=2.552 dfdy = 0.000e+00 dfdx=1.651e+03
+iterations =   8 x = 1.928 y=1.928 dfdy = -4.441e-16 dfdx=7.106e+02
+iterations =   9 x = 1.456 y=1.456 dfdy = 2.220e-16 dfdx=3.054e+02
+iterations =  10 x = 1.101 y=1.101 dfdy = 0.000e+00 dfdx=1.312e+02
+iterations =  11 x = 0.833 y=0.833 dfdy = -1.110e-16 dfdx=5.614e+01
+iterations =  12 x = 0.633 y=0.633 dfdy = 0.000e+00 dfdx=2.384e+01
+iterations =  13 x = 0.485 y=0.485 dfdy = 0.000e+00 dfdx=9.933e+00
+iterations =  14 x = 0.380 y=0.380 dfdy = 5.551e-17 dfdx=3.951e+00
+iterations =  15 x = 0.310 y=0.310 dfdy = 0.000e+00 dfdx=1.411e+00
+iterations =  16 x = 0.271 y=0.271 dfdy = 0.000e+00 dfdx=3.951e-01
+iterations =  17 x = 0.256 y=0.256 dfdy = 0.000e+00 dfdx=6.623e-02
+iterations =  18 x = 0.253 y=0.253 dfdy = 0.000e+00 dfdx=4.175e-03
+iterations =  19 x = 0.253 y=0.253 dfdy = 0.000e+00 dfdx=4.904e-05
+iterations =  20 x = 0.253 y=0.253 dfdy = 0.000e+00 dfdx=3.701e-08
+status = success
+The extremum of the Rosenbrock function is fount at x=0.253 y=0.253
+It took  20 iterations to find the extremum
