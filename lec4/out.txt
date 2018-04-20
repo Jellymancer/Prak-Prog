@@ -1,0 +1,47 @@
+
+testing komplex_set...
+a= (0.840188,0.394383)
+setting z <-- a
+z= (0.840188,0.394383)
+test passed
+
+testing komplex_add...
+a= (0.840188,0.394383)
+b= (0.783099,0.79844)
+a+b should   = (1.62329,1.19282)
+a+b actually = (1.62329,1.19282)
+test passed
+
+testing komplex_sub ... 
+a= (0.840188,0.394383)
+b= (0.783099,0.79844)
+a+b should    = (0.0570885,-0.404057)
+a+b actually  = (0.0570885,-0.404057)
+test passed
+
+testing komplex_div...
+a= (0.840188,0.394383)
+b= (0.783099,0.79844)
+a/b should   = (0.777806,-0.289425)
+a/b actually = (0.777806,-0.289425)
+test passed
+
+testing komplex_conjugate...
+a= (0.840188,0.394383)
+a* should   = (0.840188,-0.394383)
+a* actually = (0.840188,-0.394383)
+test passed
+
+testing komplex_exp...
+a= (0.840188,0.394383)
+exp(a) should   = (2.13895,0.890205)
+exp(a) actually = (2.13895,0.890205)
+test passed
+
+testing komplex_div...
+a= (0.840188,0.394383)
+b= (0.783099,0.79844)
+a*b should   = (0.343059,0.97968)
+a*b actually = (0.343059,0.97968)
+test passed
+
