@@ -1,0 +1,59 @@
+
+Testing _aloc, _set, _get and _print.
+Allocating a vector of size 4:
+Allocation sucessfull. All elements are now set to 1 and retrived.
+Checking if the values of the vector equal one after runnig _set by using _get.
+Value at index i=0 is equal to 1
+Value at index i=1 is equal to 1
+Value at index i=2 is equal to 1
+Value at index i=3 is equal to 1
+
+Now testing the print function which should return the same vector of ones.
+v=
+1
+1
+1
+1
+
+
+Testing _set_zero by allocating new vector and checking if all entries are zero.
+v=
+0
+0
+0
+0
+
+
+Now I define two vectors, a and b:
+a=
+4
+2
+2
+2
+
+b=
+1
+2
+1
+2
+
+Using _add and _sub to subtract and add the vectors yields:
+a+b=
+5
+4
+3
+4
+
+a-b=
+3
+0
+1
+0
+
+
+ Defining x=5 and checking b*x:
+x*b=
+5
+10
+5
+10
