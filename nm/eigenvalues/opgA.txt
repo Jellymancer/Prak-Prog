@@ -1,0 +1,19 @@
+Assigment A1:
+Jacobi eigenvalue algorythm implementation
+
+a Generating a random 3x3 symmetric matrix A
+  0.792    0.679    0.728  
+  0.679    0.355    0.735  
+  0.728    0.735    0.597  
+
+
+Running the jacobi diagonalization algorythm gives the following eigenvalues: 
+eigenvalues:
+ -0.274
+ -0.006
+  2.024
+check: V^T*A*V should be diagonal with above eigenvalues:
+ -0.274    0.000    0.000  
+  0.000   -0.006    0.000  
+  0.000    0.000    2.024  
+

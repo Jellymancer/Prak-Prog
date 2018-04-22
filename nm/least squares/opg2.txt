@@ -1,0 +1,10 @@
+The coefficients for the fit: c_0*log(x)+c_1+c_2*x found via least squares method are
+  7.593
+  1.224
+ -2.246
+
+The covariance matrix for the coefficients is calculated to be:
+  0.233    0.091   -0.080  
+  0.091    0.173   -0.064  
+ -0.080   -0.064    0.038  
+
