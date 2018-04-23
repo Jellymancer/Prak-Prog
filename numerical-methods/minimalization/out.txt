@@ -1,0 +1,12 @@
+Finding the extremum of the Rosenbrock's function:
+initial guess v=[x,y]:
+ -2.000
+  8.000
+
+And the value of the derivatives at the start Df=[dfdx,dfdy]:
+3194.000
+800.000
+
+The minimum is found at [x,y]:
+  0.968
+  0.938
