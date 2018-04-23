@@ -2,8 +2,8 @@
 #include<gsl/gsl_matrix.h>
 #include<gsl/gsl_blas.h>
 #include<math.h>
-void qrgsdecomp(gsl_matrix *E,gsl_matrix *W){
 
+void qrgsdecomp(gsl_matrix *E,gsl_matrix *W){
 int s=E->size2; //Number of columns in matrix E
 for(int i=0;i<s;i++){
         gsl_vector_view col=gsl_matrix_column(E,i);
@@ -36,7 +36,7 @@ for(int i=c->size-1; i>=0; i--){
 
 
 
-void newton(void f(gsl_vector* x,gsl_vector* fx), gsl_vector* x, double dx, double eps){
+void newton(void f(gsl_vector* x,gsl_vector* fx, gsl_matrix *J), gsl_vector* x, double dx, double eps){
 	int n=x->size;
 	gsl_matrix* J = gsl_matrix_alloc(n,n);
 	gsl_matrix* R = gsl_matrix_alloc(n,n);
@@ -46,10 +46,10 @@ void newton(void f(gsl_vector* x,gsl_vector* fx), gsl_vector* x, double dx, doub
 	gsl_vector* df = gsl_vector_alloc(n);
 	gsl_vector* Dx = gsl_vector_alloc(n);
 	while(1){
-		f(x,fx);
+		f(x,fx,J);
 		for (int j=0;j<n;j++){
 			gsl_vector_set(x,j,gsl_vector_get(x,j)+dx);
-			f(x,df);
+			f(x,df,J);
 			gsl_vector_sub(df,fx); /* df=f(x+dx)-f(x) */
 			for(int i=0;i<n;i++) gsl_matrix_set(J,i,j,gsl_vector_get(df,i)/dx);
 			gsl_vector_set(x,j,gsl_vector_get(x,j)-dx);
@@ -61,7 +61,7 @@ void newton(void f(gsl_vector* x,gsl_vector* fx), gsl_vector* x, double dx, doub
 		while(1){
 			gsl_vector_memcpy(z,x);
 			gsl_vector_add(z,Dx);
-			f(z,fz);
+			f(z,fz,J);
 			if( gsl_blas_dnrm2(fz)<(1-s/2)*gsl_blas_dnrm2(fx) || s<0.02 ) break;
 			s*=0.5;
 			gsl_vector_scale(Dx,0.5);
@@ -79,37 +79,7 @@ void newton(void f(gsl_vector* x,gsl_vector* fx), gsl_vector* x, double dx, doub
 	gsl_vector_free(Dx);
 }
 
-void qrgsdecomp(gsl_matrix *E,gsl_matrix *W){
-int s=E->size2; //Number of columns in matrix E
-for(int i=0;i<s;i++){
-        gsl_vector_view col=gsl_matrix_column(E,i);
-        double Rii = gsl_blas_dnrm2(&col.vector);
-        gsl_matrix_set(W,i,i,Rii);
-        gsl_vector_scale(&col.vector,1/Rii);
-
-        for(int j=i+1;j<s;j++){
-                gsl_vector_view col2= gsl_matrix_column(E,j);
-                double Rij = 0;
-                gsl_blas_ddot(&col.vector,&col2.vector,&Rij);
-                gsl_blas_daxpy(-Rij,&col.vector,&col2.vector);
-                gsl_matrix_set(W,i,j,Rij);
-                }
-        }
-
-}
-
-
-void qrgssolve(gsl_matrix* Q,  gsl_matrix* R,gsl_vector* b,gsl_vector* c){
-gsl_blas_dgemv(CblasTrans,1.0,Q,b,0.0,c);
-for(int i=c->size-1; i>=0; i--){
-        double s=gsl_vector_get(c,i);
-        for(int k=i+1;k< c->size; k++)
-                s-=gsl_matrix_get(R,i,k)*gsl_vector_get(c,k);
-                gsl_vector_set(c,i,s/gsl_matrix_get(R,i,i));}
-
-}
-
-void newtonana(void f(gsl_vector* x,gsl_vector* fx), gsl_vector* x, double dx, double eps,gsl_matrix* J){
+void newtonana(void f(gsl_vector* x,gsl_vector* fx,gsl_matrix* J), gsl_vector* x, double dx, double eps,gsl_matrix* J){
 	int n=x->size;
 	gsl_matrix* Q = gsl_matrix_alloc(n,n);
 	gsl_matrix* R = gsl_matrix_alloc(n,n);
@@ -120,22 +90,22 @@ void newtonana(void f(gsl_vector* x,gsl_vector* fx), gsl_vector* x, double dx, d
 	gsl_vector* Dx = gsl_vector_alloc(n);
 
 	while(1){
-		f(x,fx);
+		f(x,fx,J);
 		for (int j=0;j<n;j++){
 			gsl_vector_set(x,j,gsl_vector_get(x,j)+dx);
-			f(x,df);
+			f(x,df,J);
 			gsl_vector_sub(df,fx); /* df=f(x+dx)-f(x) */
 			gsl_vector_set(x,j,gsl_vector_get(x,j)-dx);
 			}
 		gsl_matrix_memcpy(Q,J);
-		qrgsdecomp(J,R);
-		qrgssolve(J,R,fx,Dx);
+		qrgsdecomp(Q,R);
+		qrgssolve(Q,R,fx,Dx);
 		gsl_vector_scale(Dx,-1);
 		double s=1;
 		while(1){
 			gsl_vector_memcpy(z,x);
 			gsl_vector_add(z,Dx);
-			f(z,fz);
+			f(z,fz,J);
 			if( gsl_blas_dnrm2(fz)<(1-s/2)*gsl_blas_dnrm2(fx) || s<0.02 ) break;
 			s*=0.5;
 			gsl_vector_scale(Dx,0.5);
