@@ -32,7 +32,7 @@ for(int i=c->size-1; i>=0; i--){
 
 }
 
-void newton(void f(gsl_vector* x,gsl_vector* fx,gsl_matrix* H), gsl_vector* x, double dx, double eps,gsl_matrix* H){
+int newton(void f(gsl_vector* x,gsl_vector* fx,gsl_matrix* H), gsl_vector* x, double dx, double eps,gsl_matrix* H){
 	int n=x->size;
 	gsl_matrix* Q = gsl_matrix_alloc(n,n);
 	gsl_matrix* R = gsl_matrix_alloc(n,n);
@@ -41,8 +41,10 @@ void newton(void f(gsl_vector* x,gsl_vector* fx,gsl_matrix* H), gsl_vector* x, d
 	gsl_vector* fz = gsl_vector_alloc(n);
 	gsl_vector* df = gsl_vector_alloc(n);
 	gsl_vector* Dx = gsl_vector_alloc(n);
+     	int ncalls = 0;
 
 	while(1){
+
 		f(x,fx,H);
 		for (int j=0;j<n;j++){
 			gsl_vector_set(x,j,gsl_vector_get(x,j)+dx);
@@ -66,8 +68,9 @@ void newton(void f(gsl_vector* x,gsl_vector* fx,gsl_matrix* H), gsl_vector* x, d
 		gsl_vector_memcpy(x,z);
 		gsl_vector_memcpy(fx,fz);
 		if( gsl_blas_dnrm2(Dx)<dx || gsl_blas_dnrm2(fx)<eps ) break;
+		ncalls ++;
 		}
-
+	return ncalls;
 	gsl_matrix_free(Q);
 	gsl_matrix_free(R);
 	gsl_vector_free(fx);
