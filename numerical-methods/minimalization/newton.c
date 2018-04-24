@@ -41,7 +41,7 @@ int newton(void f(gsl_vector* x,gsl_vector* fx,gsl_matrix* H), gsl_vector* x, do
 	gsl_vector* fz = gsl_vector_alloc(n);
 	gsl_vector* df = gsl_vector_alloc(n);
 	gsl_vector* Dx = gsl_vector_alloc(n);
-     	int ncalls = 0;
+     	int ncalls = 1;
 
 	while(1){
 
