@@ -4,19 +4,19 @@ initial guess v=[x,y]:
   0.400
 
 The minimum is found at [x,y]:
-  0.968
-  0.938
+  1.000
+  1.000
 
-It took 448026 steps to find the minimum
+It took 339 steps to find the minimum
 
 
 Finding the extremum of Himmelblaus' function:
 initial guess v=[x,y]:
  -2.000
- 83.000
+  3.000
 
 The minimum is found at [x,y]:
  -2.805
   3.131
 
-It took 13 steps to find the minimum
+It took 16 steps to find the minimum
