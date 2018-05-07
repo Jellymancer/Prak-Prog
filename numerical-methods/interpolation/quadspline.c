@@ -15,12 +15,13 @@ qspline* qspline_alloc(int n,double* x,double* y){ //builds qspline
 		s->y[i]=y[i];
 	}
 	int i;
-	double p[n-1], h[n-1];                  //VLA from C99
+	double p[n-1], h[n-1];
 	for(i=0;i<n-1;i++){
 		h[i]=x[i+1]-x[i];
 		p[i]=(y[i+1]-y[i])/h[i];
 	}
-	s->c[0]=0;                                     //recursion up:
+	s->c[0]=0;
+
 	for(i=0;i<n-2;i++)
 		s->c[i+1]=(p[i+1]-p[i]-s->c[i]*h[i])/h[i+1];
 	s->c[n-2]/=2;                                 //recursion down:
@@ -32,13 +33,9 @@ qspline* qspline_alloc(int n,double* x,double* y){ //builds qspline
 }
 
 double qspline_eval(qspline *s, double z){     //evaluates s(z)
-	assert(z>=s->x[0] && z<=s->x[s->n-1]);
-	int i=0, j=s->n-1;                     //binary search:
-	while(j-i>1){
-		int m=(i+j)/2;
-		if(z>s->x[m]) i=m;
-		else j=m;
-	}
+	int n1=s->n, i;
+	i=binsearchqspl(n1,z,s);
+
 	double h=z-s->x[i];
 	return s->y[i]+h*(s->b[i]+h*s->c[i]);
 }
@@ -48,32 +45,16 @@ void qspline_free(qspline *s){ //free the allocated memory
 }
 
 double qspline_deriv(qspline *s, double z){
-  int n = s->n;
-  assert(n>1 && z>=s->x[0] && z<=s->x[n-1]);
-  int i = 0, j=n-1;
-  while (j-i>1) {
-    int m=(i+j)/2;
-    if (z>s->x[m]) {
-      i=m;
-    } else {
-      j=m;
-    }
-  }
-  return s->b[i] + 2* s->c[i]*(z-s->x[i]);
+	int n1=s->n, i;
+	i=binsearchqspl(n1,z,s);
+
+  return s->b[i] +2*s->c[i]*(z-s->x[i]);
 }
 
 double qspline_integral(qspline *q, double z){
-  int n = q->n;
-  assert(n>1 && z>=q->x[0] && z<=q->x[n-1]);
-  int i = 0, j=n-1;
-  while (j-i>1) {
-    int m=(i+j)/2;
-    if (z>q->x[m]) {
-      i=m;
-    } else {
-      j=m;
-    }
-  }
+	int n1=q->n, i;
+	i=binsearchqspl(n1,z,q);
+
   double sum = 0;
   for (int k = 0; k < i; k++) {
 	double xk=q->x[k], xk1=q->x[k+1], bk= q->b[k], ck=q->c[k], yk=q->y[k], yk1=q->y[k+1];

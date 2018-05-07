@@ -43,9 +43,13 @@ int main() {
 	printf("Putting the found values of x and y into the system of equations gives (Should be zero):\n"); printv(fx,stdout);
 	gsl_vector_set(x,0,3);
 	gsl_vector_set(x,1,15);
-	ncalls=newton(fSys,Jacobi_fSys,x,1e-5,eps,0);
-	printf("Using the newton algorythm using a maunually supplied analytical jacobian gives a minimum at [x,y]:\n"); printv(x,stdout);
+	ncalls=newton(fSys,Jacobi_fSys,x,1e-7,eps,0);
+	printf("Using the newton algorythm using a maunually supplied analytical jacobian gives a minimum at [x,y]:\n");
+	printv(x,stdout);
 	printf("The number of function calls is %i\n",ncalls);
+	fSys(x,fx);
+	printf("Putting the found values of x and y into the system of equations gives (Should be zero):\n"); printv(fx,stdout);
+
 
 //Himmelblau
 	printf("\n\n");

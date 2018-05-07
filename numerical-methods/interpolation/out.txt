@@ -1,6 +1,8 @@
 
  
  Assignment 1 and 2: Integrations
- Calculating the integral of the linear spline of the cosine function from 0 to x=5 yields a value of dFls/dx=-0.941083.
-Manual integration of the function gives df/dx=-0.958924
-The same integral performed using the quadratic spline yields dFqs/dx = 2.07876e+07
+Function f(x)=sin(0.5*x) and the linear and quadratic spline are shown in figure 1
+Calculating the and spline integral of the cosine function from 0 to x=5 yields a value of I_lin=3.22769.
+Manual integration of the function gives I_man=3.60229
+The same integral performed using the quadratic spline yields I_quad = 2.27946e+07
+The integral of the quadratic spline is shown together with the analytic integral in figure 2

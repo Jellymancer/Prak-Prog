@@ -43,6 +43,7 @@ fprintf(opg2,"The coefficients for the fit: c_0*log(x)+c_1+c_2*x found via least
 printv(c,opg2);
 fprintf(opg2,"\nThe covariance matrix for the coefficients is calculated to be:\n");
 printm(Sigma,opg2);
+fprintf(opg2,"Best fit is plotted together with the maximum/minimum fits (using maximum/minimum deviations of the fit parameters)\n");
 return 0;}
 
 

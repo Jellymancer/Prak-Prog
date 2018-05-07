@@ -27,6 +27,9 @@ Using the newton algorythm using a maunually supplied analytical jacobian gives 
    -nan
     nan
 The number of function calls is 3
+Putting the found values of x and y into the system of equations gives (Should be zero):
+   -nan
+   -nan
 
 
 Finding the extremum of Himmelblaus' function:

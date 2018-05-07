@@ -8,3 +8,4 @@ The covariance matrix for the coefficients is calculated to be:
   0.091    0.173   -0.064  
  -0.080   -0.064    0.038  
 
+Best fit is plotted together with the maximum/minimum fits (using maximum/minimum deviations of the fit parameters)

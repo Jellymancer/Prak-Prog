@@ -21,8 +21,8 @@ void fSys(gsl_vector* p, gsl_vector* fx){
 
 void Jacobi_fSys(gsl_vector* p, gsl_matrix* J){
                 double x=gsl_vector_get(p,0), y=gsl_vector_get(p,1); double A=10000;
-		gsl_matrix_set(J,0,0,-exp(-x)); gsl_matrix_set(J,0,1,-A*y);
-		gsl_matrix_set(J,1,0,-exp(-y)); gsl_matrix_set(J,1,1,-A*x);
+		gsl_matrix_set(J,0,0,-exp(-x)); gsl_matrix_set(J,0,1,A*y);
+		gsl_matrix_set(J,1,0,-exp(-y)); gsl_matrix_set(J,1,1,A*x);
 }
 
 void fHim(gsl_vector* p, gsl_vector* fx){
