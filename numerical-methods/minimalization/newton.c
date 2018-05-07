@@ -1,6 +1,8 @@
 #include "func.h"
+
 void qrgsdecomp(gsl_matrix *E,gsl_matrix *W){
 int s=E->size2; //Number of columns in matrix E
+
 for(int i=0;i<s;i++){
         gsl_vector_view col=gsl_matrix_column(E,i);
         double Rii = gsl_blas_dnrm2(&col.vector);
@@ -34,8 +36,8 @@ int newton(void f(gsl_vector* x,gsl_vector* fx), void Jacobi(gsl_vector* p, gsl_
 	gsl_vector* Dx = gsl_vector_alloc(n);
 	int ncalls = 0;
 	do{ ncalls ++; f(x,fx);
-		if(numericJac == 1){
-		for (int j=0;j<n;j++){ //for loop for finding numerical jacobian
+		if(numericJac == 1){//Flag controoed setting for doing numerical/analytical Jacobian
+		for (int j=0;j<n;j++){ //for loop for finding numerical jacobian.
 			gsl_vector_set(x,j,gsl_vector_get(x,j)+dx);
 			f(x,df);
 			gsl_vector_sub(df,fx); /* df=f(x+dx)-f(x) */

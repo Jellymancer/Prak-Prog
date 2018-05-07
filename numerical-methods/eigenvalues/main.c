@@ -22,7 +22,9 @@ gsl_matrix* A=gsl_matrix_calloc(n,n);
 gsl_matrix* B=gsl_matrix_calloc(n,n);
 gsl_matrix* Acpy=gsl_matrix_calloc(n,n);
 
-srand(8856);
+srand(21);
+
+
 
 for(int i=0;i<n;i++){
 for(int j=i;j<n;j++){

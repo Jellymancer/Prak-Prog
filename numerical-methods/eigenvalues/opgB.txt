@@ -4,11 +4,11 @@ Jacobi eigenvalue algorythm implementation lowest eigenvalue only.
 Matrix A from assignment A is used here, which means that the eigenvalues found here should correspond to the ones foudn in the previous assignment.
 
 Running the jacobi diagonalization algorythm for the first row only: 
-The lowest eigenvalue is: l=-0.2744:
+The lowest eigenvalue is: l= 0.2130:
 
  Assignment B2: The algorythm can be set up to give the highest eigenvalue first, then the second highest etc. by changing the sign of the rotation angle.
-The highest eigenvalue is: l= 2.0241
+The highest eigenvalue is: l= 0.9943
 
-Assignment B3: The number of sweeps required for the diagonalization of the entire matrix by the cyclic method is 5 compared to 6sweeps required to find the lowest eigenvalue only
+Assignment B3: The number of sweeps required for the diagonalization of the entire matrix by the cyclic method is 4 compared to 10sweeps required to find the lowest eigenvalue only
 
 Assignment B4: The number of sweeps required to diagonilize the matix eigenvalue using the two methods is shown in the attached figure
