@@ -3,13 +3,13 @@ Testing the algorythm on a simple differential equation: dy/dx = 3x+4 which has 
 Setting startpoint x=0 and dydx=0 so that c=0.
 I also set the end point to be x_end = 50. The analytical solution at this point gives y(50)=3950.
 The obtained numerical solution is: y(50)=3950.000000.
-
-587
+The number of iterations made is: 587
 
 
 Assignment 2: Storing the path.
  Using the same function, the algorythm is performed again, this time the points calcutated along the way to x=50 are stored.
-The numerical and analytical solutions are shwon in figure 1
+The numerical and analytical solutions are shown in figure 1
 
 Now I solve the differential equation d²y/dx² -xy = 0. The solution to this equation are the airy function.
 The equation is split into dy1/dx=y2 and dy2/dx =xy1
+The equations can be seen ploted together with the analytical solutions from GSL in figure 2.

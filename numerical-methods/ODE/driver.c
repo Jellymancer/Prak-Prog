@@ -81,12 +81,13 @@ while(x < x_end){
         double tol=(tau_i*reltol+abstol)*sqrt(step/(x_end-x_start)); // local tolerance
 
         if(err_i<tol){
+		x=x+step;
+        	gsl_vector_memcpy(yx,yxh);
 		gsl_matrix_set(xypath,iter,0,x);
 		for(int i=1; i<n+1;i++) gsl_matrix_set(xypath,iter,i,gsl_vector_get(yx,i-1));
                 iter++;
                 if(iter>max-1){printf("ERROR:max iterations reached\n"); break ;}
-		x=x+step;
-        	gsl_vector_memcpy(yx,yxh);
+
 	}
 
 	if(err_i>0) step*=pow(tol/err_i,0.25)*0.95; else step*=2;

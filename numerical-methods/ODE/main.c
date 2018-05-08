@@ -1,4 +1,5 @@
 #include "print.h"
+#include "functions.h"
 
 
 void f_trial(double x, gsl_vector* y, gsl_vector* dydx){
@@ -9,13 +10,8 @@ void f_airy(double x, gsl_vector* y, gsl_vector* dydx){
 	double dydx0, dydx1;
 	dydx0=gsl_vector_get(y,0);
 	dydx1=gsl_vector_get(y,1);
-
-	gsl_vector_set(dydx,0,dydx1);
-	gsl_vector_set(dydx,1,x*dydx0);}
-
-#include "functions.h"
-
-
+	gsl_vector_set(dydx,0,dydx1*x);
+	gsl_vector_set(dydx,1,dydx0);}
 
 int main(){
 // trial function dydx = 3x+4
@@ -35,10 +31,10 @@ double abstol=0.001, reltol=0.001, x_end=50; //  absolute tolerance, relative to
 printf("I also set the end point to be x_end = 50. The analytical solution at this point gives y(50)=3950.\n");
 int iter=driver(x_start,x_end,step,yx,abstol,reltol,max,rkstepX,f_trial);
 printf("The obtained numerical solution is: y(50)=%f.\n",gsl_vector_get(yx,0));
-printf("\n%d\n",iter);
+printf("The number of iterations made is: %d\n",iter);
 
 printf("\n\nAssignment 2: Storing the path.\n Using the same function, the algorythm is performed again, this time the points calcutated along the way to x=50 are stored.\n");
-printf("The numerical and analytical solutions are shwon in figure 1");
+printf("The numerical and analytical solutions are shown in figure 1");
 gsl_matrix* xypath=gsl_matrix_alloc(max,n+1);
 x_start=0;  gsl_vector_set(yx,0,y0start);
 iter = driverwpath(x_start,x_end,step,yx,abstol,reltol,max,rkstepX,f_trial,xypath);
@@ -46,18 +42,24 @@ FILE* as1; as1=fopen("as1.txt","w");
 gsl_matrix_view xycutpath=gsl_matrix_submatrix(xypath,0,0,iter,n+1);
 printm(&xycutpath.matrix,as1);
 fclose(as1);
+FILE* as1ana; as1ana=fopen("as1ana.txt","w"); // analytical solution to the teste diff equation is printed
+for(double w=x_start ;w<x_end; w+=0.3){
+		double  anaf = 3*pow(w,2)*0.5+4*w;
+		fprintf(as1ana,"%g %g\n",w,anaf);
+}
+fclose(as1ana);
 
 
 
 // Airy functions
 printf("\n\nNow I solve the differential equation d²y/dx² -xy = 0. The solution to this equation are the airy function.\n");
-printf("The equation is split into dy1/dx=y2 and dy2/dx =xy1");
+printf("The equation is split into dy1/dx=y2 and dy2/dx =xy1\nThe equations can be seen ploted together with the analytical solutions from GSL in figure 2.\n");
 n=2;
 gsl_vector* yxairy=gsl_vector_alloc(n);
 gsl_matrix* xypath2=gsl_matrix_alloc(max,n+1);
 
-x_start=-6.28319; x_end=1;
-FILE* GSLa2; GSLa2=fopen("GSLairy.txt","w");
+x_start=-10; x_end=1;
+FILE* GSLa2; GSLa2=fopen("GSLairy.txt","w"); // prints analytical Airy function.
 for(double w=x_start ;w<x_end; w+=0.2){
 		double airy1 = gsl_sf_airy_Ai(w,1);
 		double airy2 =  gsl_sf_airy_Bi(w,1);
@@ -65,10 +67,10 @@ for(double w=x_start ;w<x_end; w+=0.2){
 }
 fclose(GSLa2);
 
-double y1_start=gsl_sf_airy_Bi(x_start,1), y2_start=gsl_sf_airy_Ai(x_start,1);
+double y1_start=gsl_sf_airy_Ai(x_start,1), y2_start=gsl_sf_airy_Bi(x_start,1);
 gsl_vector_set(yxairy,0,y1_start);
 gsl_vector_set(yxairy,1,y2_start);
-max=10000; step = 0.0001;
+max=10000; step = 0.1;
 abstol=0.001; reltol=0.001; //  absolute tolerance, relative tolerance and end points
 
 iter = driverwpath(x_start,x_end,step,yxairy,abstol,reltol,max,rkstepX,f_airy,xypath2);

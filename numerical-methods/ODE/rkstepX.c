@@ -20,18 +20,18 @@ gsl_vector* k12=gsl_vector_alloc(n);
 f(x,yx,k0);
 gsl_vector_memcpy(interr,k0);
 
-gsl_vector_scale(k0,step/2);
+gsl_vector_scale(k0,step*0.5);
 gsl_vector_memcpy(yx1,yx);
 gsl_vector_add(yx1,k0);
 
-f(x+step/2,yx1,k12);
+f(x+step*0.5,yx1,k12);
 gsl_vector_scale(k12,step);
 gsl_vector_memcpy(yxh,yx);
 gsl_vector_add(yxh,k12);
 
-f(x+step/2,yx1,k12);
+f(x+step*0.5,yx1,k12);
 gsl_vector_sub(interr,k12);
-gsl_vector_scale(interr,step/2);
+gsl_vector_scale(interr,step*0.5);
 
 gsl_vector_free(k0);
 gsl_vector_free(yx1);
