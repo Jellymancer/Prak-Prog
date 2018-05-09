@@ -21,7 +21,7 @@ void rkstepX(double , double , gsl_vector*,
 void f(double ,gsl_vector* ,gsl_vector* ),
 gsl_vector* , gsl_vector*),
 void f(double ,gsl_vector *,gsl_vector *),
-gsl_matrix*);
+gsl_matrix*, int);
 
 
 

@@ -8,7 +8,7 @@ all: out.txt as1.svg plotairy.svg
 
 as1.svg: out.txt Makefile
 	echo '\
-        set term svg background rgb "white";\
+        set term svg size 800,600 background rgb "white";\
         set out "as1.svg";\
         set xlabel "x";\
         set ylabel "y";\
@@ -28,8 +28,8 @@ plotairy.svg: out.txt Makefile
         set tics out;\
         set key out;\
         set title "Fig 2: Airy equation solution" ;\
-        plot "airy.txt" using 1:2 with lines title "Numeric-airy_A", "airy.txt" using 1:3 with lines title "Numeric-Airy_B",\
-	"GSLairy.txt" using 1:2 with points title "GSL-airy_A","GSLairy.txt" using 1:3 with points title "GSL-airy_B";\
+        plot "airy.txt" using 1:2 with lines title "Numeric-Airy_B",\
+	"GSLairy.txt" using 1:3 with points title "GSL-airy_B";\
         '|gnuplot
 
 out.txt: main
@@ -39,4 +39,4 @@ main: main.o print.o rkstepX.o driver.o
 
 
 clean:
-	rm -f main *.o out*
+	rm -f main *.o out* *.svg *.txt

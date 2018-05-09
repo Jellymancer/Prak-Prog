@@ -1,0 +1,25 @@
+Assignment 1: Recursive adaptive integration. Integrating the following four functions.
+Numerical integration of sqrt(x) from 0 to 1 yields:  I=0.666554. It should be 2/3.
+No. of evaluations: N=104
+
+Numerical integration of sqrt(x)⁻¹ from 0 to 1 yields:  I=2.00062. It should be 2.
+No. of evaluations: N=430
+
+Numerical integration of ln(x)/sqrt(x) from 0 to 1 yields: I= -4.00078. It should be -4.
+No. of evaluations: N=1212
+
+Numerical integration of 4*sqrt(1-(1-x)²) from 0 to 1 yields: I=3.1419. It should be 3.14159.
+No. of evaluations: N=1408
+
+
+
+Assigment 2: Infinite integrals.
+The used routines are compared to the results of GSL routines.
+Numerical integration of exp(-x²) from -Inf to Inf.
+ I=1.77253. I_GSL= 1.77245.
+No. of evaluations: 1691
+
+Numerical integration of 1/x² from 5 to Inf yields.
+ I=0.200198. I_GSL= 0.2.
+No. of evaluations: N=1782
+
