@@ -77,7 +77,9 @@ int main(){
 	}
 	fclose(nn2);
 
-
+printf("\nANN interpolation is performed for two types of tabluated using two different activation functions.\n");
+printf("Fig 1: shows the interpolation of f(x)=cos(5*x-1)*exp(-x²) using activation function x*exp(-x²)\n");
+printf("Fig 2: shows the interpolation of f(x)=x³ using activation function cos(x)*exp(-x²)\n");
 
 
 

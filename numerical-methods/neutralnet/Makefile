@@ -3,6 +3,7 @@ LDLIBS += $$(gsl-config --libs) -lm
 
 
 all: main plot.svg plot2.svg
+	cat out.txt
 	xdg-open plot.svg
 	xdg-open plot2.svg
 
@@ -34,7 +35,7 @@ plot2.svg: out.txt Makefile
 
 
 out.txt: main
-	./main
+	./main > out.txt
 
 main: main.o neurons.o
 
