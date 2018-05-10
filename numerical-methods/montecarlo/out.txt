@@ -1,0 +1,17 @@
+
+
+Assignment 1: Some easy integrals are used for testing the algorythm.
+I first try to integrate a spherical volume element over a sphere using spherical coordinates.f=1, dV=r*r*sin(theta), r=[0;1] theta=[0;2*pi] phi=[0;pi].
+The result is I=4.18732. It should be 4/3*pi*r³=4.18879
+The error is found to be: 0.00462516
+
+Now integrating f=x*y*z over a cube in cartesian coordinates, dV=1, x=[0;1] y=[0;1] z=[0;1].
+The result is I=0.125129. It should be 1/8=0.125
+The error is found to be: 0.000146591
+
+Now integrating the function given in assignment 1. f=[1-cos(x)cos(y)cos(z)]⁻¹ in (transformed) cartesian, dV=1/pi, x=[0;pi] y=[0;pi] z=[0;pi]
+The result is I=1.38515. It should be I=1.3932
+The error is found to be: 0.00720524
+
+Now I check is the error of the MC integration method scales as 1/sqrt(N).
+This is done for the sphere integral by increasing N gradually. The result can be seen in figure 1.
