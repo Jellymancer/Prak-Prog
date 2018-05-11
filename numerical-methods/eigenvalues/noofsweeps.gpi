@@ -4,8 +4,9 @@ set out "noofsweeps.svg";
 set tics out;
 set xlabel "Size of the matrix"; \
 set ylabel "No. of sweeps"; \
-set title "Number of sweeps required for diagonalization as function of matrix size"; \
-plot "noofsweeps.txt" using 1:2  with lines title 'cyclic sweeps', "noofsweeps.txt" using 1:3 with lines title 'value by value', "noofsweeps.txt" using 1:4  with lines title 'Classic largest value algorythm';
+set title "Fig 2:Number of sweeps required for diagonalization as function of matrix size"; \
+plot "swp.txt" using 1:2  with lines title 'cyclic sweeps',\
+ "swp.txt" using 1:3 with lines title 'value by value';
 
 
 

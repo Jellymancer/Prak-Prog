@@ -94,7 +94,7 @@ printv(bcheck);
 //now to Assignment B:
 printf("\nAssignment B:.................................\n");
 printf("Using the same random matrix M as in A2 I now find its inverse.\nThis is done by using the methods from A1 and A2");
-printf("to solve Mx_i=e_i,\ne_i being the i-th unit vector and x_i being the i-th column of the inverse matrix M⁻¹.\n");
+printf(" to solve Mx_i=e_i,\ne_i being the i-th unit vector and x_i being the i-th column of the inverse matrix M⁻¹.\n");
 
 gsl_vector_set_zero(b);
 gsl_vector_set_zero(x);
@@ -106,7 +106,7 @@ for(int i=0;i< Mm->size2;i++){
 	gsl_vector_set_zero(x);
 }
 
-printf("The found inverse matrix M⁻¹ is. \nM⁻¹=\n");
+printf("The found inverse matrix M⁻¹: \nM⁻¹=\n");
 printm(Mmi);
 printf("\nChecking if MM⁻¹ = I.\nMM⁻¹=\n");
 gsl_matrix_set_zero(Rr);

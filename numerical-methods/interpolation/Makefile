@@ -2,7 +2,7 @@
 LDLIBS = -lm
 
 
-plot: splines.svg splinederiv.svg
+plot: splines.svg splinederiv.svg splines.dat
 	xdg-open splines.svg
 	xdg-open splinederiv.svg
 	cat out.txt

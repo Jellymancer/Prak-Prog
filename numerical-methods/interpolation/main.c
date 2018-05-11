@@ -27,9 +27,10 @@ int main(){
 	double integral;
 	double zmax=5; // max value for integration.
 	integral = linterpint(size,x,y,zmax);
-	printf("\n \n Assignment 1 and 2: Integrations\nFunction f(x)=sin(0.5*x) and the linear and quadratic spline are shown in figure 1\n"); 
-	printf("Calculating the and spline integral of the cosine function");
-	printf(" from %g to x=%g yields a value of I_lin=%g.\nManual integration of the function gives I_man=3.60229\n",x[0],zmax,integral);
+	printf("\n \n Assignment 1 and 2: Integrations\nFunction f(x)=sin(0.5*x) is tabluated in discrete steps.");
+	printf("The linear and quadratic splines of f(x) are shown in figure 1\n");
+	printf("Calculating the linear spline integral of the cosine function");
+	printf(" from %g to x=%g yields a value of I_lin=%g.\nAnalytic integration of the integral gives I_ana=3.60229\n",x[0],zmax,integral);
 
 
 	// Q-spline
@@ -45,8 +46,8 @@ int main(){
 	}
 	fclose(qsplines);
 	double qintegral = qspline_integral(Q,zmax);
-	printf("The same integral performed using the quadratic spline yields I_quad = %g\n",qintegral);
-	printf("The integral of the quadratic spline is shown together with the analytic integral in figure 2\n");
+	printf("The same integral cacculated using the quadratic spline yields I_quad = %g\n",qintegral);
+	printf("The derivative of the quadratic spline is shown together with the analytic derivative f'(x)=0.5*cos(0.5*x) in figure 2\n");
 
 	return 0;
 }

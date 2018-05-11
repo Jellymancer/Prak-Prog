@@ -1,34 +1,34 @@
 Assigment A1:
 QR-decomposition of matrix A into matrices Q and R
 Random matrix A:
-  0.686    0.360    0.003  
-  0.965    0.747    0.527  
-  0.906    0.849    0.798  
-  0.977    0.746    0.570  
+  0.921    0.736    0.094  
+  0.119    0.668    0.777  
+  0.591    0.907    0.161  
+  0.460    0.164    0.172  
 
 
 
 QR-decomposition is performed yielding matrix Q: 
-  0.385   -0.761   -0.373  
-  0.541   -0.010   -0.216  
-  0.508    0.646   -0.373  
-  0.548   -0.055    0.822  
+  0.772   -0.207   -0.027  
+  0.100    0.767    0.612  
+  0.495    0.469   -0.534  
+  0.386   -0.386    0.582  
 
 
 
 and matrix R:
-  1.782    1.383    1.005  
-  0.000    0.226    0.477  
-  0.000    0.000    0.056  
+  1.193    1.147    0.297  
+  0.000    0.721    0.585  
+  0.000    0.000    0.487  
 
 
 
 Checking if QR=A.
  QR=
-  0.686    0.360    0.003  
-  0.965    0.747    0.527  
-  0.906    0.849    0.798  
-  0.977    0.746    0.570  
+  0.921    0.736    0.094  
+  0.119    0.668    0.777  
+  0.591    0.907    0.161  
+  0.460    0.164    0.172  
 
 
 
@@ -43,46 +43,46 @@ Checking of QtQ=I. Here Qt is the traspose of Q and I is the identity matrix.
  Assignment A2................................................
 Randomly generated vector b.
  b=
-  0.447
-  0.002
-  0.422
+  0.117
+  0.797
+  0.836
 
  and matrix M.
  M=
-  0.403    0.822    0.790  
-  0.340    0.423    0.719  
-  0.957    0.143    0.569  
+  0.754    0.525    0.075  
+  0.443    0.531    0.580  
+  0.371    0.302    0.703  
 
 
 Now QR decomposition is performed using the method showcased in A1
 Solving R*x=Qt*b using back substitution yields the x-vector.
  x=
-  0.936
-  1.164
- -1.124
+ -0.336
+  0.545
+  1.133
 
 Checking if Mx equals b.
  Mx=
-  0.447
-  0.002
-  0.422
+  0.117
+  0.797
+  0.836
 
 Assignment B:.................................
 Using the same random matrix M as in A2 I now find its inverse.
-This is done by using the methods from A1 and A2to solve Mx_i=e_i,
+This is done by using the methods from A1 and A2 to solve Mx_i=e_i,
 e_i being the i-th unit vector and x_i being the i-th column of the inverse matrix M⁻¹.
-The found inverse matrix M⁻¹ is. 
+The found inverse matrix M⁻¹: 
 M⁻¹=
-  0.760   -1.961    1.421  
-  2.729   -2.906   -0.118  
- -1.964    4.027   -0.603  
+  2.099   -3.665    2.800  
+ -1.016    5.316   -4.278  
+ -0.674   -0.344    1.779  
 
 
 Checking if MM⁻¹ = I.
 MM⁻¹=
-  1.000    0.000    0.000  
-  0.000    1.000    0.000  
- -0.000    0.000    1.000  
+  1.000   -0.000   -0.000  
+ -0.000    1.000   -0.000  
+  0.000   -0.000    1.000  
 
 
 

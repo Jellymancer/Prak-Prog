@@ -1,3 +1,7 @@
+
+
+
+
 Assigment A1:
 Jacobi eigenvalue algorythm implementation
 
@@ -8,12 +12,14 @@ a Generating a random 3x3 symmetric matrix A
 
 
 Running the jacobi diagonalization algorythm gives the following eigenvalues: 
-eigenvalues:
+eig=:
   0.213
   0.608
   0.994
-check: V^T*A*V should be diagonal with above eigenvalues:
+V^T*A*V should be diagonal with above eigenvalues present in the diagonal:
+ V^T*A*V =
   0.213   -0.000   -0.000  
  -0.000    0.608    0.000  
  -0.000    0.000    0.994  
 
+The diagonalization algorythm is run for random matrices of increasing size n. The time taken for the algorythm to run is measured and can be seen in figure 1. It should scale as n³ which is checked by fitting a f(n)=a*n³ to the points.

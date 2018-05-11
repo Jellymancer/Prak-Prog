@@ -1,8 +1,8 @@
 
  
  Assignment 1 and 2: Integrations
-Function f(x)=sin(0.5*x) and the linear and quadratic spline are shown in figure 1
-Calculating the and spline integral of the cosine function from 0 to x=5 yields a value of I_lin=3.22769.
-Manual integration of the function gives I_man=3.60229
-The same integral performed using the quadratic spline yields I_quad = 2.27946e+07
-The integral of the quadratic spline is shown together with the analytic integral in figure 2
+Function f(x)=sin(0.5*x) is tabluated in discrete steps.The linear and quadratic splines of f(x) are shown in figure 1
+Calculating the linear spline integral of the cosine function from 0 to x=5 yields a value of I_lin=3.22769.
+Analytic integration of the integral gives I_ana=3.60229
+The same integral cacculated using the quadratic spline yields I_quad = 3.60571
+The derivative of the quadratic spline is shown together with the analytic derivative f'(x)=0.5*cos(0.5*x) in figure 2

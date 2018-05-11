@@ -16,7 +16,7 @@ qspline* qspline_alloc(int n,double* x,double* y);
 double qspline_eval(qspline *s, double z);
 void qspline_free(qspline *s);
 double qspline_deriv(qspline * s, double z);
-double qspline_intergral(qspline *q, double z);
+double qspline_integral(qspline *q, double z);
 int binsearch(int , double , double* );
 int binsearchqspl(int n, double z, qspline* s);
 #endif

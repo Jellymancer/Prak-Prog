@@ -1,9 +1,4 @@
-#include<stdlib.h>
-#include<gsl/gsl_blas.h>
-#include<gsl/gsl_vector.h>
-#include<gsl/gsl_matrix.h>
-#include<stdio.h>
-
+#include "jac.h"
 
 void printm(gsl_matrix* T,FILE* f){
 for(int c=0;c< T->size1;c++){
