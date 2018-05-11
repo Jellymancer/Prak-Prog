@@ -7,6 +7,7 @@
 #include<gsl/gsl_matrix.h>
 #include<stdio.h>
 #include<math.h>
+#include<assert.h>
 void fRos(gsl_vector* p,gsl_vector* fx);
 
 void Jacobi_fRos(gsl_vector* p, gsl_matrix* J);

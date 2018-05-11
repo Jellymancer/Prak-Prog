@@ -39,7 +39,7 @@ printm(Sigma,stdout);
 printf("\n\n\n\n\n");
 fittry(c,x,y,dy,m,dc);
 FILE* opg2; opg2 = fopen("opg2.txt","w");
-fprintf(opg2,"The coefficients for the fit: c_0*log(x)+c_1+c_2*x found via least squares method are\n");
+fprintf(opg2,"The coefficients for the fit: c_0*log(x)+c_1+c_2*x found via least squares method are.\n c[c0;c1;c2]=\n");
 printv(c,opg2);
 fprintf(opg2,"\nThe covariance matrix for the coefficients is calculated to be:\n");
 printm(Sigma,opg2);

@@ -1,4 +1,5 @@
-The coefficients for the fit: c_0*log(x)+c_1+c_2*x found via least squares method are
+The coefficients for the fit: c_0*log(x)+c_1+c_2*x found via least squares method are.
+ c[c0;c1;c2]=
   7.593
   1.224
  -2.246

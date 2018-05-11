@@ -35,28 +35,30 @@ int newton(void f(gsl_vector* x,gsl_vector* fx), void Jacobi(gsl_vector* p, gsl_
 	int ncalls = 0;
 	do{ ncalls ++; f(x,fx);
 		if(numericJac == 1){
-		for (int j=0;j<n;j++){ //for loop for finding numerical jacobian
-			gsl_vector_set(x,j,gsl_vector_get(x,j)+dx);
-			f(x,df);
+		for (int j=0;j<n;j++){
+			gsl_vector_set(x,j,gsl_vector_get(x,j)+dx); // advance x by dx
+			f(x,df); // df=f(x+dx)
 			gsl_vector_sub(df,fx); /* df=f(x+dx)-f(x) */
-			for(int i=0;i<n;i++) gsl_matrix_set(J,i,j,gsl_vector_get(df,i)/dx);
+			for(int i=0;i<n;i++) gsl_matrix_set(J,i,j,gsl_vector_get(df,i)/dx); //for loop for finding numerical jacobian
 			gsl_vector_set(x,j,gsl_vector_get(x,j)-dx);
 			}}
-		else{Jacobi(x,J);}
+		else{Jacobi(x,J);} // if analytic Jacobian is supplied, use it instead.
 
 		qrgsdecomp(J,R);
 		qrgssolve(J,R,fx,Dx);
-		gsl_vector_scale(Dx,-1);
+		gsl_vector_scale(Dx,-1); // calculate Dx newton step
 		double lam=1;
-		do{	lam/=2.0;
+		do{
 			gsl_vector_memcpy(z,x);
-			gsl_blas_daxpy(lam,Dx,z);
+			gsl_blas_daxpy(lam,Dx,z); // take dx step
 			f(z,fz);
-			}while(gsl_blas_dnrm2(fz)>(1-lam/2)*gsl_blas_dnrm2(fx) && lam>0.02);
-
-		gsl_vector_memcpy(x,z);
+			lam/=2.0;
+			}while(gsl_blas_dnrm2(fz)>(1-lam/2)*gsl_blas_dnrm2(fx) && lam>0.02); // continue until lambda meets condition
+			// || f(x + lam ∆x)|| < (1−lam/2)*||f(x)||
+		gsl_vector_memcpy(x,z); // replace previous values with vales after step
 		gsl_vector_memcpy(fx,fz);
-		}while(gsl_blas_dnrm2(Dx)>dx && gsl_blas_dnrm2(fx)>eps);
+//		for(int i=0;i<n;i++){assert(isnan(gsl_vector_get(x,i)) != 0 && isinf(gsl_vector_get(x,i)) !=0);}
+		}while(gsl_blas_dnrm2(Dx)>dx && gsl_blas_dnrm2(fx)>eps);//Do as long as the x and y steps are under the given tolerances.
 
 	return ncalls;
 	gsl_matrix_free(J);
