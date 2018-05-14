@@ -3,4 +3,3 @@ Assignment 1: Mathematical functions.
  First the real values functions:
 Gamma function of 5.00 is 24.00  
 Bessel function of 0.50 is 0.94  
-Square root of -2.00 is -nan 

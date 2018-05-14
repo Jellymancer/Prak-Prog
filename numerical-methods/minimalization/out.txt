@@ -1,22 +1,65 @@
-Finding the extremum of Rosenbrocks' function:
-initial guess v=[x,y]:
- -2.400
-  0.400
 
-The minimum is found at [x,y]:
+
+Assignment A: finding minima of Rosenbrockss' and Himmelblaus' functions using newtons method.
+Finding the minimum of Rosenbrocks' function:
+initial guess v=[x,y]:
+  1.500
+  3.000
+
+The minimum is found at [x_min,y_min]:
   1.000
   1.000
+The function value at this point is f(x_min,y_min)=2.90762e-12
 
-It took 339 steps to find the minimum
+It took 70 steps to find the minimum
 
 
-Finding the extremum of Himmelblaus' function:
+Finding one of the minima of Himmelblaus' function:
 initial guess v=[x,y]:
- -2.000
+  4.000
+  3.000
+
+The minimum is found at [x_min,y_min]:
+  3.000
+  2.000
+The function value at this point is f(x_min,y_min)=3.22237e-10
+
+It took 20 steps to find the minimum
+
+
+Assignment B: Broyden update.
+Trying the same two function using quasi-newtion with Broyden update.
+Finding the minimum of Rosenbrocks' function using broyden:
+initial guess v=[x,y]:
+  1.500
   3.000
 
 The minimum is found at [x,y]:
- -2.805
-  3.131
+  1.000
+  1.000
+The function value at this point is f(x_min,y_min)=1.39176e-13
 
-It took 16 steps to find the minimum
+It took 507 steps to find the minimum
+
+
+Finding one of the minima of Himmelblaus' function using broyden update:
+initial guess v=[x,y]:
+  3.500
+  1.000
+
+The minimum is found at [x_min,y_min]:
+  3.000
+  2.000
+The function value at this point is f(x_min,y_min)=1.2091e-12
+
+It took 58 steps to find the minimum
+
+
+Radioactive decay.
+Now I make a fit to the radioactive data (listed in exp.dat) using least squares.
+
+The parameters of the best fit are found to be: [A,T,B]:
+  3.557
+  3.205
+  1.232
+The data points together with the best fit can be seen in figure 1.

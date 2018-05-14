@@ -1,71 +1,105 @@
 #include "func.h"
 
-void qrgsdecomp(gsl_matrix *E,gsl_matrix *W){
-int s=E->size2; //Number of columns in matrix E
-
-for(int i=0;i<s;i++){
-        gsl_vector_view col=gsl_matrix_column(E,i);
-        double Rii = gsl_blas_dnrm2(&col.vector);
-        gsl_matrix_set(W,i,i,Rii);
-        gsl_vector_scale(&col.vector,1/Rii);
-
-        for(int j=i+1;j<s;j++){
-                gsl_vector_view col2= gsl_matrix_column(E,j);
-                double Rij = 0;
-                gsl_blas_ddot(&col.vector,&col2.vector,&Rij);
-                gsl_blas_daxpy(-Rij,&col.vector,&col2.vector);
-                gsl_matrix_set(W,i,j,Rij);
-                }}}
-
-void qrgssolve(gsl_matrix* Q,  gsl_matrix* R,gsl_vector* b,gsl_vector* c){
-gsl_blas_dgemv(CblasTrans,1.0,Q,b,0.0,c);
-for(int i=c->size-1; i>=0; i--){
-        double s=gsl_vector_get(c,i);
-        for(int k=i+1;k< c->size; k++)
-                s-=gsl_matrix_get(R,i,k)*gsl_vector_get(c,k);
-                gsl_vector_set(c,i,s/gsl_matrix_get(R,i,i));}}
-
-int newton(void f(gsl_vector* x,gsl_vector* fx), void Jacobi(gsl_vector* p, gsl_matrix* J),gsl_vector* x, double dx, double eps, int numericJac){
+int newton(double f(gsl_vector* x,gsl_vector* gr_fx), void Hess(gsl_vector* p, gsl_matrix* H),gsl_vector* x, double dx, double eps){
 	int n=x->size;
-	gsl_matrix* J = gsl_matrix_alloc(n,n);
+	gsl_matrix* H = gsl_matrix_alloc(n,n);
 	gsl_matrix* R = gsl_matrix_alloc(n,n);
-	gsl_vector* fx = gsl_vector_alloc(n);
-	gsl_vector* z  = gsl_vector_alloc(n);
-	gsl_vector* fz = gsl_vector_alloc(n);
-	gsl_vector* df = gsl_vector_alloc(n);
+	gsl_vector* gr_fx = gsl_vector_alloc(n);
+	gsl_vector* z  = gsl_vector_alloc(n); // z used for bactracking linesearch.
+	gsl_vector* gr_fz = gsl_vector_alloc(n);
 	gsl_vector* Dx = gsl_vector_alloc(n);
 	int ncalls = 0;
-	do{ ncalls ++; f(x,fx);
-		if(numericJac == 1){//Flag controoed setting for doing numerical/analytical Jacobian
-		for (int j=0;j<n;j++){ //for loop for finding numerical jacobian.
-			gsl_vector_set(x,j,gsl_vector_get(x,j)+dx);
-			f(x,df);
-			gsl_vector_sub(df,fx); /* df=f(x+dx)-f(x) */
-			for(int i=0;i<n;i++) gsl_matrix_set(J,i,j,gsl_vector_get(df,i)/dx);
-			gsl_vector_set(x,j,gsl_vector_get(x,j)-dx);
-			}}
-		else{Jacobi(x,J);}
+	do{ ncalls ++; f(x,gr_fx);
 
-		qrgsdecomp(J,R);
-		qrgssolve(J,R,fx,Dx);
-		gsl_vector_scale(Dx,-1);
-		double lam=1;
-		do{	lam/=2.0;
-			gsl_vector_memcpy(z,x);
-			gsl_blas_daxpy(lam,Dx,z);
-			f(z,fz);
-			}while(gsl_blas_dnrm2(fz)>(1-lam/2)*gsl_blas_dnrm2(fx) && lam>0.02);
+		Hess(x,H); //Set Hessian
+
+		qrgsdecomp(H,R);
+		qrgssolve(H,R,gr_fx,Dx);
+		gsl_vector_scale(Dx,-1); //finding dx step by solving df(x)+H(x)*dx by QR decomposition.
+		double lam=1,fvalz, fvalx, armcond; double *armcondp=&armcond;
+
+		do{
+			fvalz=f(z,gr_fz);
+			fvalx=f(x,gr_fx);
+			gsl_blas_ddot(Dx,gr_fx,armcondp); armcond = *(armcondp);
+
+			lam/=2.0;
+			gsl_vector_memcpy(z,x); //Bactracking linesearch is performed until condition armijo condition is met.
+			gsl_blas_daxpy(0.5,Dx,z);
+
+			} while(fvalz > fvalx + 1e-4*lam*armcond && lam >0.02);
+			//Stop when armijo condition is met or lambda becomes too small.
 
 		gsl_vector_memcpy(x,z);
-		gsl_vector_memcpy(fx,fz);
-		}while(gsl_blas_dnrm2(Dx)>dx && gsl_blas_dnrm2(fx)>eps);
+		gsl_vector_memcpy(gr_fx,gr_fz);
+		}while(gsl_blas_dnrm2(Dx)>dx && gsl_blas_dnrm2(gr_fx)>eps);
 
 	return ncalls;
-	gsl_matrix_free(J);
+	gsl_matrix_free(H);
 	gsl_matrix_free(R);
-	gsl_vector_free(fx);
+	gsl_vector_free(gr_fx);
 	gsl_vector_free(z);
-	gsl_vector_free(fz);
-	gsl_vector_free(df);
+	gsl_vector_free(gr_fz);
 	gsl_vector_free(Dx);
 }
+
+int newton_broy(double f(gsl_vector* x,gsl_vector* gr_fx),gsl_vector* x, double eps){
+	int n=x->size;
+	gsl_matrix* H = gsl_matrix_alloc(n,n); // Here H is the inverse hessian. Updates are performed directly on H⁻¹.
+	gsl_vector* bl1 = gsl_vector_alloc(n); // for blas routines
+	gsl_vector* bl2 = gsl_vector_alloc(n); //
+	gsl_vector* gr_fx = gsl_vector_alloc(n);
+	gsl_vector* z  = gsl_vector_alloc(n); // z used for bactracking linesearch.
+	gsl_vector* gr_fz = gsl_vector_alloc(n);
+	gsl_vector* Dx = gsl_vector_alloc(n); //step
+
+	int ncalls = 0, callmax=1e8;
+	gsl_matrix_set_identity(H); //Set hessian as identity (first approx)
+	f(x,gr_fx);
+	double lam,fvalz,fvalx,armcond,Hys, alpha = 1e-4;
+	double *armcondp=&armcond; double *Hysp=&Hys;
+
+		do{ncalls++;
+		lam = 1;
+		//Solve  grad_f(x + s) =  grad_f(x) + (H+dH)*s, by setting the gradient to zero.
+		// s=-H⁻¹ grad_f(x)
+		f(x,gr_fx);
+		gsl_blas_dgemv(CblasNoTrans,-1.0,H,gr_fx,0.0,Dx); // set the step.
+
+		while(1){
+                        gsl_vector_memcpy(z,x); //Bactracking linesearch is performed until condition armijo condition is met.
+                        gsl_vector_add(z,Dx);//adds the step to x.
+
+                        fvalz=f(z,gr_fz);
+                        fvalx=f(x,gr_fx);
+                        gsl_blas_ddot(Dx,gr_fx,armcondp); armcond = *(armcondp);
+			if(lam < 0.002){ gsl_matrix_set_identity(H); break;} //if update diverges, reset Hessian.
+			if(fvalz < fvalx + alpha*lam*armcond) break;
+			lam/=2.0;
+			gsl_vector_scale(Dx,0.5);
+                        }                        //Stop when armijo condition is met or lambda becomes too small.
+
+		f(z,gr_fz);
+		gsl_vector_sub(gr_fz,gr_fx);
+		// Make the broyden update. H⁻¹ -> H⁻¹ + (s-H⁻¹y)*s^T*H⁻¹ / (y^T*H⁻¹ s)
+		gsl_blas_dgemv(CblasNoTrans,1.0,H,gr_fz,0.0,bl1); // H⁻¹y ->bl1
+		gsl_blas_dgemv(CblasNoTrans,1.0,H,Dx,0.0,bl2); //H⁻¹s ->bl2
+		gsl_blas_ddot(bl1,Dx,Hysp); Hys=*(Hysp); Hys=1/Hys; // 1/yH⁻¹s->Hys
+		gsl_vector_sub(Dx,bl1); // s-H⁻¹y->s
+		gsl_blas_dger(Hys,Dx,bl2,H);//updating the H⁻¹
+
+		gsl_vector_memcpy(x,z);
+		f(x,gr_fx);
+		if(ncalls >= callmax) printf("ERROR:MAX ITERATIONS ACHIEVED!");
+		}while(gsl_blas_dnrm2(gr_fx)>eps && ncalls < callmax);
+
+	return ncalls;
+	gsl_matrix_free(H);
+	gsl_vector_free(bl1);
+	gsl_vector_free(bl2);
+	gsl_vector_free(gr_fx);
+	gsl_vector_free(z);
+	gsl_vector_free(gr_fz);
+	gsl_vector_free(Dx);
+}
+

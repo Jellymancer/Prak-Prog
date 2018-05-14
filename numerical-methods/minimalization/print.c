@@ -1,4 +1,4 @@
-#include "print.h"
+#include "func.h"
 
 void printm(gsl_matrix* T,FILE* f){
 for(int c=0;c< T->size1;c++){

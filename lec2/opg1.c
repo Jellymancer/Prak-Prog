@@ -12,8 +12,5 @@ value=0.5;
 result=j0(value);
 printf("Bessel function of %.2f is %.2f  \n",value,result);
 
-value=-2;
-result=sqrt(value);
-printf("Square root of %.2f is %.2f \n",value,result);
 return 0;
 }

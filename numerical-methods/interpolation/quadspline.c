@@ -48,7 +48,7 @@ double qspline_deriv(qspline *s, double z){
 	int n1=s->n, i;
 	i=binsearchqspl(n1,z,s);
 
-  return s->b[i] +2*s->c[i]*(z-s->x[i]);
+  return s->b[i] +2*s->c[i]*(z-s->x[i]); // return the derivative of the interpolating function
 }
 
 double qspline_integral(qspline *q, double z){
@@ -56,7 +56,7 @@ double qspline_integral(qspline *q, double z){
 	i=binsearchqspl(n1,z,q);
 
   double sum = 0;
-  for (int k = 0; k < i; k++) {
+  for (int k = 0; k < i; k++) { //the integral is found for each interval and summed.
 	double xk=q->x[k], xk1=q->x[k+1], bk= q->b[k], ck=q->c[k], yk=q->y[k], yk1=q->y[k+1];
 	double dx = xk1-xk;
     sum = sum + yk*dx + 0.5*bk*dx*dx + ck*dx*dx*dx/3.0;
