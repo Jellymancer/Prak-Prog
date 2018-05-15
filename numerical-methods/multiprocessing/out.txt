@@ -1,0 +1,29 @@
+Multiprocessing will be used to run the adaptive integrator. Two threads are made, one for assignment A and the other for assignment B.
+1:Assignment A: Recursive adaptive integration. Integrating the given four function and comparing the result to the listed value.
+
+1:Numerical integration of sqrt(x) from 0 to 1 yields:  I=0.666663. It should be 2/3.
+1:No. of evaluations: N=373
+
+1:Numerical integration of sqrt(x)⁻¹ from 0 to 1 yields:  I=2.00008. It should be 2.
+1:No. of evaluations: N=1433
+
+2:
+
+Assigment B: Infinite integrals.
+The used routines are compared to the results of GSL routines.
+2:Numerical integration of exp(-x²) from -Inf to Inf.
+ I=1.77248. I_GSL= 1.77245.
+2:No. of evaluations: 861
+
+2:Numerical integration of 1/x² from 5 to Inf yields.
+ I=0.200022. I_GSL= 0.2.
+2:No. of evaluations: N=1148
+
+Thread 2 closed.
+1:Numerical integration of ln(x)/sqrt(x) from 0 to 1 yields: I= -4.00011. It should be -4.
+1:No. of evaluations: N=3939
+
+1:Numerical integration of 4*sqrt(1-(1-x)²) from 0 to 1 yields: I=3.14158. It should be 3.14159.
+1:No. of evaluations: N=4581
+
+Thread 1 closed.
