@@ -1,5 +1,5 @@
 The coefficients for the fit: c_0*log(x)+c_1+c_2*x found via least squares method are.
- c[c0;c1;c2]=
+ [c0;c1;c2]=
   7.593
   1.224
  -2.246
@@ -9,4 +9,9 @@ The covariance matrix for the coefficients is calculated to be:
   0.091    0.173   -0.064  
  -0.080   -0.064    0.038  
 
-Best fit is plotted together with the maximum/minimum fits (using maximum/minimum deviations of the fit parameters)
+The errors on the fitting parameters are the squares of the diagonal elements of the covariance matrix.
+ [dc0;dc1;dc2]=
+  0.483
+  0.416
+  0.195
+Best fit is plotted together with the maximum/minimum fits (using maximum/minimum values of the fit parameters).

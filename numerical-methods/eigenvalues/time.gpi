@@ -1,10 +1,10 @@
 set term svg size 800,600 background rgb "white";
 set out "time.svg";
 set tics out;
-set xlabel "Size of the matrix"; \
+set xlabel "Size of the matrix: n"; \
 set ylabel "Time [sec]"; \
 set title "Fig 1: Time of diagonalization as function of matrix size"; \
 f(x)=a*x*x*x;\
 FIT_LIMIT = 1e-6;\
 fit f(x) "time.txt" using 1:2 via a;\
-plot "time.txt" using 1:2  with points title "cyclic sweeps", a*x*x*x with lines title "a*n³ fit";\
+plot "time.txt" using 1:2  with points title "Runtime", a*x*x*x with lines title "a*n³ fit";\

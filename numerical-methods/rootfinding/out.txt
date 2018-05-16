@@ -14,9 +14,8 @@ Using the newton algorythm with a maunually supplied analytical jacobian gives a
   1.000
   1.000
 The number of function calls is 85
-Inserting the found values of x and y into Rosenbrocks' function yields (Should be zero):
-  0.000
- -0.000
+GSL hybrids rootfinder takes 3 steps before finding the root.
+
 
 
 Root finding for the system of equations given in assignment A:
@@ -35,9 +34,7 @@ Using the newton algorythm using a maunually supplied analytical jacobian gives 
   0.000
   9.106
 The number of function calls is 19
-Putting the found values of x and y into the system of equations gives (Should be zero):
- -0.000
-  0.000
+GSL hybrids rootfinder takes 137 steps before finding the root.
 
 
 Finding the extremum of Himmelblaus' function:
@@ -56,6 +53,4 @@ Using the newton algorythm using a maunually supplied analytical jacobian gives 
  -3.779
  -3.283
 The number of function calls is 12
-Inserting the found values of x and y into Himmelblaus' function yields (Should be zero):
- -0.000
-  0.000
+GSL hybrids rootfinder takes 18 steps before finding the root.

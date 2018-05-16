@@ -5,13 +5,14 @@
 void lsfit(gsl_matrix* M, gsl_vector* b, gsl_vector* c, gsl_matrix* Sigma){
 int n=M->size1; int m=M->size2;
 
-gsl_matrix* Q=gsl_matrix_calloc(n,m);
+gsl_matrix* Q=gsl_matrix_calloc(n,m); // allocating memory
 gsl_matrix* R=gsl_matrix_calloc(m,m);
 gsl_matrix* Sigma2=gsl_matrix_calloc(m,m);
 gsl_matrix* SigmaQ=gsl_matrix_calloc(m,m);
 
 
 gsl_matrix_memcpy(Q,M);
+// solving c=R⁻¹Q^Tb using QR decomposition.
 qrgsdecomp(Q,R);
 gsl_blas_dgemm(CblasTrans,CblasNoTrans,1,R,R,0,Sigma2);
 qrgssolve(Q,R,b,c);
@@ -21,7 +22,8 @@ gsl_vector* q=gsl_vector_calloc(m);
 gsl_vector* x=gsl_vector_calloc(m);
 gsl_matrix_memcpy(SigmaQ,Sigma2);
 qrgsdecomp(SigmaQ,R);
-for(int i=0;i< m;i++){
+
+for(int i=0;i< m;i++){ //Calculating the covariance matrix
         gsl_vector_set(q,i,1);
         qrgssolve(SigmaQ,R,q,x);
         gsl_matrix_set_col(Sigma,i,x);
@@ -38,6 +40,7 @@ gsl_vector_free(q);
 gsl_vector_free(x);
 }
 
+//Rest of the function are used for QR decomp and solving the decomposed equation.
 void qrgsdecomp(gsl_matrix *E,gsl_matrix *W){
 
 int s=E->size2; //Number of columns in matrix E

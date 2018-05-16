@@ -30,4 +30,4 @@ main2: main2.o myprint.o jac.o jac2.o
 .PHONEY: clean
 
 clean:
-	rm -f main *.o *.txt out* *.png *.svg log* *log
+	rm -f main1 main2 *.o *.txt out* *.png *.svg log* *log

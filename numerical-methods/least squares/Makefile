@@ -1,14 +1,14 @@
 CFLAGS += -O -march=native -Wall -std=gnu11 `gsl-config --cflags`
 QRDIR = ../qr.gramschmidt.gsl
 CFLAGS += -I$(QRDIR)
-LDLIBS += `gsl-config --libs`
+LDLIBS += `gsl-config --libs` -lm
 
 all: out.txt plot.svg
 	xdg-open plot.svg
 	cat opg2.txt
 plot.svg: out.txt ogdata.txt Makefile
 	echo '\
-	set term svg background rgb "white";\
+	set term svg size 1200,800 background rgb "white";\
 	set out "$@";\
 	set xlabel "x";\
 	set ylabel "y";\
@@ -26,4 +26,4 @@ out.txt: main
 
 main: main.o matrixprep.o fit.o
 
-clean:; $(RM) *.o main out* *.svg
+clean:; $(RM) *.o main out* *.svg *.txt
