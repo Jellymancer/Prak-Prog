@@ -1,7 +1,7 @@
 
 Testing _aloc, _set, _get and _print.
 Allocating a vector of size 4:
-Allocation sucessfull. All elements are now set to 1 and retrived.
+Allocation sucessfull. All elements are now set to 1.
 Checking if the values of the vector equal one after runnig _set by using _get.
 Value at index i=0 is equal to 1
 Value at index i=1 is equal to 1

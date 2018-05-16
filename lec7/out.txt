@@ -16,7 +16,7 @@ x(1)=-2.83303
 x(2)=0.851459
 
  
- Using x to check if the solution works yields [b(index)]:
+ Using x to check if the solution works. Ax = :
 b(0)= 6.23
 b(1)= 5.37
 b(2)= 2.29

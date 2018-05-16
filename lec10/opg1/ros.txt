@@ -20,5 +20,5 @@ iterations =  18 x = 0.253 y=0.253 dfdy = 0.000e+00 dfdx=4.175e-03
 iterations =  19 x = 0.253 y=0.253 dfdy = 0.000e+00 dfdx=4.904e-05
 iterations =  20 x = 0.253 y=0.253 dfdy = 0.000e+00 dfdx=3.701e-08
 status = success
-The extremum of the Rosenbrock function is fount at x=0.253 y=0.253
+The extremum of the Rosenbrock function is found at x=0.253 y=0.253
 It took  20 iterations to find the extremum

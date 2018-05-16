@@ -76,8 +76,8 @@ printf("This result is much closer since the 'double' variable has twice as many
 printf("\n\nAssignment 3: relative precision\n");
 double a=3, b=3.004, tau=0.1, epsilon=0.01;
 int ret=equal(a,b,tau,epsilon);
-printf("Using a=%g, b=%g, tau=%g, epsilon=%g, the function returns: %i\n",a,b,tau,epsilon,ret);
+printf("Using a=%g, b=%g, tau=%g, epsilon=%g, the precision function returns: %i\n",a,b,tau,epsilon,ret);
 a=5; b=10;
 ret=equal(a,b,tau,epsilon);
-printf("Using a=%g, b=%g, tau=%g, epsilon=%g, the function returns: %i\n",a,b,tau,epsilon,ret);
+printf("Using a=%g, b=%g, tau=%g, epsilon=%g, the precision function returns: %i\n",a,b,tau,epsilon,ret);
 return 0;}

@@ -27,7 +27,8 @@ double funky(double z){
 
 int main(){
 int x=1;
-		printf("\n\nAssignment 1: Performing the integration yields the value %g\n",funky(x));
+printf("\n\nAssignment 1: Performing the integration yields the value %g\n",funky(x));
+printf("Assignment 2 is plotted in the attched figure\n");
 return 0;
 }
 

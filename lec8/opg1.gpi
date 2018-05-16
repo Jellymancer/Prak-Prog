@@ -5,4 +5,5 @@ set xlabel "x"
 set ylabel "y"
 set tics out
 set key bottom
-plot [0:3][0:1] "opg1.dat" with lines title "solution do diff equation"
+set title "opg1. Solution to differential equation y'=y*(1-y)"
+plot [0:3][0:1] "opg1.dat" with lines title "solution to diff equation"

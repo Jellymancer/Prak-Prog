@@ -119,6 +119,7 @@ iterations, A, B(lifetime), C,
 Minimum found at:
   117, 5.13075, 2.72334, 1.08395
 
- Structure of table is: iterations,A,B,C
+
 The optimization was performed on the function f(A,B,C)=A*exp(-t/B)+C
 Best lifetime (B) is estimated to be B=2.72334 [unit]
+The fit is plotted in figure.

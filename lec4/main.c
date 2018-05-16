@@ -29,13 +29,13 @@ int main()
 		printf("test falied\n\n");
 
 
-	printf("testing komplex_add...\n");
+	printf("testing komplex_add...\n Values from my function are compared to results from komplex.h.\n");
 	komplex_print("a=", a);
 	komplex_print("b=", b);
 	z = komplex_add(a, b);
 	w = KOMPLEX(A + B);
-	komplex_print("a+b should   =", w);
-	komplex_print("a+b actually =", z);
+	komplex_print("a+b should be (from komplex.h) =", w);
+	komplex_print("a+b (my func) =", z);
 	if (komplex_equal(w, z))
 		printf("test passed\n\n");
 	else
@@ -46,8 +46,8 @@ int main()
 	komplex_print("b=",b);
 	z= komplex_sub(a, b);
 	w= KOMPLEX(A - B);
-	komplex_print("a+b should    =",w);
-	komplex_print("a+b actually  =",z);
+	komplex_print("a+b should be =",w);
+	komplex_print("a+b  =",z);
 	if (komplex_equal(w, z))
 		printf("test passed\n\n");
 	else
@@ -59,8 +59,8 @@ int main()
 	komplex_print("b=", b);
 	z = komplex_div(a, b);
 	w = KOMPLEX(A / B);
-	komplex_print("a/b should   =", w);
-	komplex_print("a/b actually =", z);
+	komplex_print("a/b should be =", w);
+	komplex_print("a/b =", z);
 	if (komplex_equal(w, z))
 		printf("test passed\n\n");
 	else
@@ -70,8 +70,8 @@ int main()
 	komplex_print("a=", a);
 	z = komplex_conjugate(a);
 	w = komplex_new(a.re, -a.im);
-	komplex_print("a* should   =", w);
-	komplex_print("a* actually =", z);
+	komplex_print("a* should be  =", w);
+	komplex_print("a* =", z);
 	if (komplex_equal(w, z))
 		printf("test passed\n\n");
 	else
@@ -81,20 +81,20 @@ int main()
 	komplex_print("a=", a);
 	z = komplex_exp(a);
 	w = KOMPLEX(exp(A));
-	komplex_print("exp(a) should   =", w);
-	komplex_print("exp(a) actually =", z);
+	komplex_print("exp(a) should be  =", w);
+	komplex_print("exp(a) =", z);
 	if (komplex_equal(w, z))
 		printf("test passed\n\n");
 	else
 		printf("test falied\n\n");
 
-	printf("testing komplex_div...\n");
+	printf("testing komplex_mul...\n");
 	komplex_print("a=", a);
 	komplex_print("b=", b);
 	z = komplex_mul(a, b);
 	w = KOMPLEX(A*B);
-	komplex_print("a*b should   =", w);
-	komplex_print("a*b actually =", z);
+	komplex_print("a*b should be =", w);
+	komplex_print("a*b =", z);
 	if (komplex_equal(w, z))
 		printf("test passed\n\n");
 	else

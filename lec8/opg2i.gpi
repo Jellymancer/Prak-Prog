@@ -6,4 +6,5 @@ set xlabel "x"
 set ylabel "y"
 set tics out
 set key bottom
+set title "Opg 2: Equatorial motion, \epsilon=0, u(0)=1,u'(0)=0"
 plot [-2:2][-2:2]"opg2i.dat" using (1/$2)*sin($1):(1/$2)*cos($1) with lines title "opg2i"

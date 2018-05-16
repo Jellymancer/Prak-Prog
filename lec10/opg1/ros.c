@@ -56,7 +56,7 @@ int main(void){
   while (status == GSL_CONTINUE && iter < 1000);
 
   printf ("status = %s\n", gsl_strerror (status));
-  printf ("The extremum of the Rosenbrock function is fount at x=%.3f y=%.3f\n",gsl_vector_get(S->x,0),gsl_vector_get(S->x,1));
+  printf ("The extremum of the Rosenbrock function is found at x=%.3f y=%.3f\n",gsl_vector_get(S->x,0),gsl_vector_get(S->x,1));
   printf ("It took %3u iterations to find the extremum\n", iter);
   gsl_multiroot_fsolver_free (S);
   gsl_vector_free (x);

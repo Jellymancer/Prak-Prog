@@ -10,7 +10,7 @@ int main(){
 	printf("\nTesting _aloc, _set, _get and _print.\nAllocating a vector of size 4:\n");
 	nvector *v = nvector_alloc(n);
 	if(v==NULL) fprintf(stderr,"Failed to allocate vector");
-	else{printf("Allocation sucessfull.\ All elements are now set to 1 and retrived.\n");
+	else{printf("Allocation sucessfull.\ All elements are now set to 1.\n");
 	printf("Checking if the values of the vector equal one after runnig _set by using _get.\n");
 	for(int i=0; i<n;i++){ nvector_set(v,i,1);
 	printf("Value at index i=%d is equal to %g\n",i,nvector_get(v,i));}
@@ -25,7 +25,7 @@ int main(){
 	printf("\n\nNow I define two vectors, a and b:\n");
 	nvector *a = nvector_alloc(n);
 	nvector *b = nvector_alloc(n);
-	nvector *c = nvector_alloc(n);
+	nvector *c = nvector_alloc(n); //used for saving results.
 	for(int i=0; i<n;i++){ nvector_set(a,i,round(RND+RND+RND+RND+RND)); nvector_set(b,i,round(RND+RND+RND)); }
 	nvector_print("a=\n",a);
 	printf("\n");

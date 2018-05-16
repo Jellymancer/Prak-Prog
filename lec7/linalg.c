@@ -78,7 +78,7 @@ printf("\n \n The solution vector x is found to be [x(index)]:\n");
 for( int i=0;i<n;i++)
 	printf("x(%d)=%g\n",i,gsl_vector_get(x,i));
 
-printf("\n \n Using x to check if the solution works yields [b(index)]:\n");
+printf("\n \n Using x to check if the solution works. Ax = :\n");
 for (int i=0;i<n;i++)
 	printf("b(%d)= %g\n",i,gsl_vector_get(y,i));
 

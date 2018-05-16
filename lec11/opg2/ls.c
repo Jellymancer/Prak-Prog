@@ -90,11 +90,9 @@ int n = sizeof(t)/sizeof(t[0]);
         break;
       status = gsl_multimin_test_size (s->size, 1e-3);
 
-      if (status == GSL_SUCCESS)
-        printf ("Minimum found at:\n");
+      if (status == GSL_SUCCESS) printf ("Minimum found at:\n");
 
-
-      printf ("%5d, %.5f, %.5f, %.5f\n", iter,
+	printf ("%5d, %.5f, %.5f, %.5f\n", iter,
               gsl_vector_get (s->x, 0), 
               gsl_vector_get (s->x, 1), 
               gsl_vector_get (s->x, 2));
@@ -103,10 +101,9 @@ int n = sizeof(t)/sizeof(t[0]);
 
   while (status == GSL_CONTINUE && iter < 1000);
 
-  printf("\n Structure of table is: iterations,A,B,C\n");
-  printf("The optimization was performed on the function f(A,B,C)=A*exp(-t/B)+C\n");
+  printf("\n\nThe optimization was performed on the function f(A,B,C)=A*exp(-t/B)+C\n");
   printf("Best lifetime (B) is estimated to be B=%.5f [unit]\n",gsl_vector_get (s->x, 1));
-
+  printf("The fit is plotted in figure.\n");
 plotdata(gsl_vector_get (s->x, 0),gsl_vector_get (s->x, 1),gsl_vector_get (s->x, 2));
 
   gsl_multimin_fminimizer_free (s);

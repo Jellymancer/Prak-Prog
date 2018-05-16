@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.3.12)  16 APR 2018 16:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.3.12)  16 MAY 2018 14:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -320,14 +320,15 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 6.
 LaTeX Info: Redefining \pageref on input line 6.
 LaTeX Info: Redefining \nameref on input line 6.
+
+(./BP.out) (./BP.out)
 \@outlinefile=\write3
 \openout3 = `BP.out'.
 
-
-[1
+ [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<arcsin.pdf, id=28, 361.35pt x 216.81pt>
+<arcsin.pdf, id=41, 361.35pt x 216.81pt>
 File: arcsin.pdf Graphic file (type pdf)
  <use arcsin.pdf>
 Package pdftex.def Info: arcsin.pdf used on input line 60.
@@ -355,22 +356,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 82.
  (./BP.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 82.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 82.
-
-
-Package rerunfilecheck Warning: File `BP.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `BP.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D5CD12767950B4D2966813CA83081210;186.
+Package rerunfilecheck Info: File `BP.out' has not changed.
+(rerunfilecheck)             Checksum: D5CD12767950B4D2966813CA83081210;186.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 82.
  ) 
 Here is how much of TeX's memory you used:
- 6206 strings out of 494953
- 91503 string characters out of 6180977
+ 6215 strings out of 494953
+ 91577 string characters out of 6180977
  178280 words of memory out of 5000000
- 9437 multiletter control sequences out of 15000+600000
+ 9442 multiletter control sequences out of 15000+600000
  8922 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  33i,6n,28p,256b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -382,10 +376,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmtt10.pfb>
-Output written on BP.pdf (3 pages, 108333 bytes).
+Output written on BP.pdf (3 pages, 108549 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
+ 97 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  15 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 

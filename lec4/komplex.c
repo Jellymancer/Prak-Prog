@@ -10,7 +10,7 @@
 #define EPS 1e-6
 #endif
 
-const komplex komplex_I = { 0, 1 };
+const komplex komplex_I = { 0, 1 }; //define komplex struct
 
 
 
@@ -22,7 +22,7 @@ void komplex_set(komplex * z, double x, double y){
 	(*z).re=x;
 	(*z).im=y;}
 
-int double_equal(double a, double b){
+int double_equal(double a, double b){ //tests if two number are equal (to a absolute/relative tolerance).
 	if (fabs(a - b) < TAU)
 		return 1;
 	if (fabs(a - b) / (fabs(a) + fabs(b)) < EPS / 2)
