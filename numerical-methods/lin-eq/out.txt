@@ -1,71 +1,71 @@
 Assigment A1:
 QR-decomposition of matrix A into matrices Q and R
 Random matrix A:
-  0.185    0.264    0.916  
-  0.379    0.136    0.266  
-  0.185    0.607    0.874  
-  0.195    0.846    0.181  
+  0.722    0.450    0.226  
+  0.593    0.560    0.001  
+  0.576    0.260    0.757  
+  0.021    0.948    0.014  
 
 
 
 QR-decomposition is performed yielding matrix Q: 
-  0.370   -0.020    0.677  
-  0.758   -0.561   -0.302  
-  0.370    0.423    0.457  
-  0.389    0.711   -0.491  
+  0.658   -0.047   -0.247  
+  0.540    0.160   -0.495  
+  0.525   -0.141    0.812  
+  0.019    0.976    0.187  
 
 
 
 and matrix R:
-  0.501    0.754    0.934  
-  0.000    0.776    0.330  
-  0.000    0.000    0.851  
+  1.098    0.753    0.547  
+  0.000    0.957   -0.103  
+  0.000    0.000    0.561  
 
 
 
 Checking if QR=A.
  QR=
-  0.185    0.264    0.916  
-  0.379    0.136    0.266  
-  0.185    0.607    0.874  
-  0.195    0.846    0.181  
+  0.722    0.450    0.226  
+  0.593    0.560    0.001  
+  0.576    0.260    0.757  
+  0.021    0.948    0.014  
 
 
 
 Checking of QtQ=I. Here Qt is the traspose of Q and I is the identity matrix.
  QtQ=
-  1.000    0.000    0.000  
-  0.000    1.000   -0.000  
-  0.000   -0.000    1.000  
+  1.000   -0.000    0.000  
+ -0.000    1.000    0.000  
+  0.000    0.000    1.000  
 
 
 
  Assignment A2................................................
 Randomly generated vector b.
  b=
-  0.798
-  0.551
-  0.670
+  0.840
+  0.088
+  0.439
 
  and matrix M.
  M=
-  0.362    0.603    0.229  
-  0.968    0.024    0.292  
-  0.599    0.051    0.311  
+  0.931    0.981    0.041  
+  0.164    0.659    0.313  
+  0.723    0.179    0.234  
 
 
 Now QR decomposition is performed using the method showcased in A1
 Solving R*x=Qt*b using back substitution yields the x-vector.
  x=
- -0.162
-  0.515
-  2.381
+  0.722
+  0.193
+ -0.504
 
 Checking if Mx equals b.
  Mx=
-  0.798
-  0.551
-  0.670
+  0.840
+  0.088
+  0.439
 
 Assignment B:.................................
 Using the same random matrix M as in A2 I now find its inverse.
@@ -73,16 +73,16 @@ This is done by using the methods from A1 and A2 to solve Mx_i=e_i,
 e_i being the i-th unit vector and x_i being the i-th column of the inverse matrix M⁻¹.
 The found inverse matrix M⁻¹: 
 M⁻¹=
-  0.103    2.487   -2.411  
-  1.782    0.349   -1.640  
- -0.488   -4.845    8.124  
+  0.381   -0.862    1.088  
+  0.731    0.729   -1.106  
+ -1.738    2.110    1.759  
 
 
 Checking if MM⁻¹ = I.
 MM⁻¹=
-  1.000    0.000   -0.000  
-  0.000    1.000    0.000  
- -0.000   -0.000    1.000  
+  1.000   -0.000   -0.000  
+ -0.000    1.000    0.000  
+  0.000    0.000    1.000  
 
 
 

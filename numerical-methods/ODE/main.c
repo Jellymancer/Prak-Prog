@@ -78,12 +78,12 @@ max=10000;
 abstol=0.001; reltol=0.001; //  absolute tolerance, relative tolerance and end points
 
 //Positive first.
-step=0.01; x_end=3;
+step=0.1; x_end=3;
 int iterpos = driverwpath(x_start,x_end,step,yxairy,abstol,reltol,max,rkstepX,f_airy,xypath2pos,1);
 //and negative (taken in negative direction from 0 to -10);
 gsl_vector_set(yxairy,0,y1_start);
 gsl_vector_set(yxairy,1,y2_start);
-step=-0.01; x_end=-10;
+step=-0.1; x_end=-10;
 int iterneg = driverwpath(x_start,x_end,step,yxairy,abstol,reltol,max,rkstepX,f_airy,xypath2neg,0);
 
 //The solutions are combined and printed

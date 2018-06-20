@@ -10,7 +10,7 @@ for(int i=0;i<n;i++)
 gsl_matrix_set_identity(V);
 do{ changed=0; int p,q;
 	for(p=0;p<n;p++)for(q=p+1;q<n;q++){
-		double app=gsl_vector_get(e,p);//finding the values to de rotated
+		double app=gsl_vector_get(e,p);//finding the values to be rotated
 		double aqq=gsl_vector_get(e,q);
 		double apq=gsl_matrix_get(A,p,q);
 		double phi=0.5*atan2(2*apq,aqq-app); //determining the rotation angle
