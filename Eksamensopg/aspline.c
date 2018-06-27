@@ -31,8 +31,8 @@ aspline* aspline_alloc(int n,double* x,double* y){//builds spline
 	for(int i=2;i<n-2;i++){//finding weigths. F(33)
 		double w1=fabs(p[i+1]-p[i]), w2=fabs(p[i-1]-p[i-2]);
 		if(w1+w2==0) s->Ai[i]=(p[i-1]+p[i])/2; //determine which formula for A_i' to use F(31/32).
-		else s->Ai[i]=(w1*p[i-1]+w2*p[i])/(w1+w2);
-	}
+		else s->Ai[i]=(w1*p[i-1]+w2*p[i])/(w1+w2);}
+
 	// Determine c_i and d_i F(29/30).
 	for(int i=0;i<n-1;i++){
 		s->c[i]=(3*p[i]-2*s->Ai[i]-s->Ai[i+1])/h[i];

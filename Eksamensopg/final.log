@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.3.12)  20 JUN 2018 18:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.3.12)  27 JUN 2018 15:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -261,39 +261,52 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip50
 )
-(./final.aux
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-LaTeX Warning: Label `fig:d' multiply defined.
-
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen127
+\captionmargin@=\dimen128
+\captionwidth=\dimen129
+\caption@tempdima=\dimen130
+\caption@indent=\dimen131
+\caption@parindent=\dimen132
+\caption@hangindent=\dimen133
 )
+\c@ContinuedFloat=\count114
+Package caption Info: hyperref package is loaded.
+) (./final.aux)
 \openout1 = `final.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
- (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count114
-\scratchdimen=\dimen127
+\scratchcounter=\count115
+\scratchdimen=\dimen134
 \scratchbox=\box28
-\nofMPsegments=\count115
-\nofMParguments=\count116
+\nofMPsegments=\count116
+\nofMParguments=\count117
 \everyMPshowfont=\toks20
-\MPscratchCnt=\count117
-\MPscratchDim=\dimen128
-\MPnumerator=\count118
-\makeMPintoPDFobject=\count119
+\MPscratchCnt=\count118
+\MPscratchDim=\dimen135
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
 \everyMPtoPDFconversion=\toks21
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -311,7 +324,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 6.
+Package hyperref Info: Link coloring OFF on input line 8.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -319,99 +332,113 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count120
+\c@section@level=\count121
 )
-LaTeX Info: Redefining \ref on input line 6.
-LaTeX Info: Redefining \pageref on input line 6.
-LaTeX Info: Redefining \nameref on input line 6.
+LaTeX Info: Redefining \ref on input line 8.
+LaTeX Info: Redefining \pageref on input line 8.
+LaTeX Info: Redefining \nameref on input line 8.
 
 (./final.out) (./final.out)
 \@outlinefile=\write3
 \openout3 = `final.out'.
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--48
+Underfull \hbox (badness 10000) in paragraph at lines 28--53
 
  []
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<splines.pdf, id=35, 361.35pt x 216.81pt>
-File: splines.pdf Graphic file (type pdf)
- <use splines.pdf>
-Package pdftex.def Info: splines.pdf used on input line 57.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+<manualaspline2.pdf, id=59, 361.35pt x 216.81pt>
+File: manualaspline2.pdf Graphic file (type pdf)
+ <use manualaspline2.pdf>
+Package pdftex.def Info: manualaspline2.pdf used on input line 107.
+(pdftex.def)             Requested size: 345.0pt x 207.00049pt.
+
+<manualaspline.pdf, id=60, 361.35pt x 216.81pt>
+File: manualaspline.pdf Graphic file (type pdf)
+ <use manualaspline.pdf>
+Package pdftex.def Info: manualaspline.pdf used on input line 111.
 (pdftex.def)             Requested size: 345.0pt x 207.00049pt.
 
 
-LaTeX Warning: Reference `fig:d2' on page 2 undefined on input line 65.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-<dsplines.pdf, id=37, 361.35pt x 216.81pt>
+[4 <./manualaspline2.pdf> <./manualaspline.pdf
+
+pdfTeX warning: pdflatex (file ./manualaspline.pdf): PDF inclusion: multiple pd
+fs with page group included in a single page
+>] <sinsplines.pdf, id=83, 361.35pt x 216.81pt>
+File: sinsplines.pdf Graphic file (type pdf)
+ <use sinsplines.pdf>
+Package pdftex.def Info: sinsplines.pdf used on input line 136.
+(pdftex.def)             Requested size: 345.0pt x 207.00049pt.
+
+<dsplines.pdf, id=84, 361.35pt x 216.81pt>
 File: dsplines.pdf Graphic file (type pdf)
  <use dsplines.pdf>
-Package pdftex.def Info: dsplines.pdf used on input line 73.
+Package pdftex.def Info: dsplines.pdf used on input line 143.
 (pdftex.def)             Requested size: 345.0pt x 207.00049pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<dsplines2.pdf, id=38, 361.35pt x 216.81pt>
-File: dsplines2.pdf Graphic file (type pdf)
- <use dsplines2.pdf>
-Package pdftex.def Info: dsplines2.pdf used on input line 79.
+<d2splines.pdf, id=85, 361.35pt x 216.81pt>
+File: d2splines.pdf Graphic file (type pdf)
+ <use d2splines.pdf>
+Package pdftex.def Info: d2splines.pdf used on input line 148.
 (pdftex.def)             Requested size: 345.0pt x 207.00049pt.
+ [5
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+ <./sinsplines.pdf>] [6 <./dsplines.pdf> <./d2splines.pdf
 
-[2 <./splines.pdf>] [3 <./dsplines.pdf>] [4 <./dsplines2.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 104--107
+pdfTeX warning: pdflatex (file ./d2splines.pdf): PDF inclusion: multiple pdfs w
+ith page group included in a single page
+>] [7
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 179--182
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 110.
-[5
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 185.
+[8
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 110.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 185.
  (./final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 110.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 110.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 185.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 185.
 Package rerunfilecheck Info: File `final.out' has not changed.
-(rerunfilecheck)             Checksum: A75B09FE739499F342222C69C4AF6A33;145.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 110.
+(rerunfilecheck)             Checksum: 5C37255FE08DB059A8D47DD80AB96918;210.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 185.
  ) 
 Here is how much of TeX's memory you used:
- 6229 strings out of 494953
- 91821 string characters out of 6180977
- 177277 words of memory out of 5000000
- 9449 multiletter control sequences out of 15000+600000
- 9230 words of font info for 34 fonts, out of 8000000 for 9000
+ 7281 strings out of 494953
+ 110966 string characters out of 6180977
+ 200457 words of memory out of 5000000
+ 10483 multiletter control sequences out of 15000+600000
+ 9229 words of font info for 34 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 33i,6n,28p,259b,328s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
-fb>
-Output written on final.pdf (5 pages, 196884 bytes).
+ 36i,6n,39p,259b,330s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on final.pdf (8 pages, 249960 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
- 18 named destinations out of 1000 (max. 500000)
- 40 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 190 PDF objects out of 1000 (max. 8388607)
+ 149 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

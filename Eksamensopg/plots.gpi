@@ -1,0 +1,62 @@
+
+        set term pdf;\
+        set out 'manualaspline.pdf';\
+        set xlabel 'x';\
+        set ylabel 'y';\
+        set key right top;\
+        set tics out;\
+        set title 'Manual data set, derivatives from quadratic spline';\
+        plot 'manual.dat' i 0 using 1:2 with points title 'discrete points'\
+        ,'manual.dat' i 2 using 1:3 with lines dt 2 title 'cspline'\
+        ,'manual.dat' i 2 using 1:2 with lines lt rgb "red" title 'aspline'\
+        ,'manual.dat' i 2 using 1:4 with lines title 'cs-spline';\
+
+        set term pdf;\
+        set out 'manualaspline2.pdf';\
+        set xlabel 'x';\
+        set ylabel 'y';\
+        set key right top;\
+        set tics out;\
+        set title 'Manual data set with manual derivatives';\
+        plot 'manual.dat' i 1 using 1:2 with points title 'discrete points'\
+        ,'manual.dat' i 3 using 1:3 with lines dt 2 title 'cspline'\
+        ,'manual.dat' i 3 using 1:2 with lines lt rgb "red"  title 'aspline'\
+	,'manual.dat' i 3 using 1:4 with lines title 'cs-spline';\
+
+
+        set term pdf;\
+        set out 'd2splines.pdf';\
+        set xlabel 'x';\
+        set ylabel 'y';\
+        set key right top;\
+        set tics out;\
+        set title 'Second derivatives';\
+        plot 'sinspline.dat' index 0 using 1:8 with lines dt 2 title 'cspline',\
+        'sinspline.dat' index 0 using 1:9 with lines lt rgb "red" title 'aspline',\
+        'sinspline.dat' index 0 using 1:10 with lines title 'cs-spline',\
+        'sinspline.dat' index 3 using 1:2 with points title 'd²/dx² f(x)=-sin(x)';\
+
+        set term pdf;\
+        set out 'sinsplines.pdf';\
+        set xlabel 'x';\
+        set ylabel 'y';\
+        set key right top;\
+        set tics out;\
+        set title 'Splines of sine';\
+        plot 'sinspline.dat' index 0 using 1:2 with lines dt 2 title 'cspline',\
+        'sinspline.dat' index 0 using 1:3 with lines lt rgb "red" title 'aspline',\
+        'sinspline.dat' index 0 using 1:4 with lines title 'cs-spline',\
+        'sinspline.dat' index 1 using 1:2 with points title 'f(x)=sin(x)';\
+
+        set term pdf;\
+        set out 'dsplines.pdf';\
+        set xlabel 'x';\
+        set ylabel 'y';\
+        set key right bottom;\
+        set tics out;\
+        set title 'First derivatives';\
+        plot 'sinspline.dat' index 0 using 1:5 with lines dt 2 title 'cspline derivative',\
+        'sinspline.dat' index 0 using 1:6 with lines lt rgb "red" title 'aspline derivative',\
+        'sinspline.dat' index 0 using 1:7 with lines title 'cs-spline derivative',\
+        'sinspline.dat' index 2 using 1:2 with points title 'df(x)/dx = cos(x)';
+

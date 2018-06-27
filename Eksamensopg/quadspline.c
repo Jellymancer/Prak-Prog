@@ -21,7 +21,6 @@ qspline* qspline_alloc(int n,double* x,double* y){ //builds qspline
 		p[i]=(y[i+1]-y[i])/h[i];
 	}
 	s->c[0]=0;
-
 	for(i=0;i<n-2;i++)
 		s->c[i+1]=(p[i+1]-p[i]-s->c[i]*h[i])/h[i+1];
 	s->c[n-2]/=2;                                 //recursion down:
