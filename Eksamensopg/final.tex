@@ -35,7 +35,7 @@ derivatives at the tabulated points \cite{Prakprog}.
 The efficiency of splines as interpolating functions varies as splines are
 prone to wiggling.
 \\
-One of the more common choices is a cubic spline (k=3). Cubic splines (cplines) usually have high precision 
+One of the more common choices is a cubic spline (k=3). Cubic splines (csplines) usually have high precision 
 but they can also be prone to wiggling if the interpolated set has a large discontinuity or outliers.
 \\
 \\
@@ -53,7 +53,7 @@ The method and equations for calculating coefficients for csplines and asplines,
 
 \subsection{Cubic sub-spline}
 The other spline that will be used in this project is a cubic sub-spline (cs-spline). This spline requires 
-that we know the derivatives of the tabulated function. So we need a data set:
+that we know the derivatives of the tabulated function at the tabulated points. So we need a data set:
 \begin{equation}
 \label{eq:cs1}
 x_i,y_i,p_i | i=1...n.
@@ -66,7 +66,7 @@ The i'th cs-spline has the same form as a cubic spline:
 S_i(x)=a_i+b_i h + c_i h^2 +d_i h^3.
 \end{equation}
 Where $h=(x-x_i)$.
-In order to find the proper coefficients ($a_i, b_i, c_i, d_i$) for the spline, we require that four boundary conditions be 
+In order to find the proper coefficients ($a_i, b_i, c_i, d_i$) for the spline, we require that four boundary conditions are 
 satisfied.
 \begin{enumerate}
 \item $S_i(x_i)=y_i \Rightarrow a_i=y_i$
@@ -75,7 +75,7 @@ satisfied.
 \item $S'(x_{i+1} = p_{i+1} \Rightarrow d_i = \left(\frac{dp_i}{3 dx_i^2}-\frac{1}{3 dx_i^3}(dy_i-b_i dx_i)
 \right) \left(1+\frac{1}{3}\right)^{-1}$
 \end{enumerate}
-Here I used: $dx_i=x_{i+1}-x_i$, $dy_i=y_{i+1}-y_i$ and $dp_i=p_{i+1}-p{i}$, $S'$ is the derivative of 
+Here I used: $dx_i=x_{i+1}-x_i$, $dy_i=y_{i+1}-y_i$ and $dp_i=p_{i+1}-p_{i}$, $S'$ is the derivative of 
 $S$ with respect to x.
 \\
 The four conditions are sufficient for finding all coefficients as 

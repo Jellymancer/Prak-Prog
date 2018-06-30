@@ -12,44 +12,43 @@ ospline* ospline_alloc(int n,double* x,double* y, double* df){ //builds qspline
 	s->d = (double*) malloc((n-1)*sizeof(double));
 	s->n = n;
 
-	for(int i=0;i<n;i++){//x,y and df lists are defined in the q-spline (df being the derivative)
+	for(int i=0;i<n;i++){//x,y and df lists are defined in the q-spline (df being the derivative at tabulated points)
+			//The a_i and b_i parameters are stored as y_i and df_i.
 		s->x[i]=x[i];
 		s->y[i]=y[i];
 		s->df[i]=df[i];}
 
-	double h[s->n]; double dy[s->n]; double p[s->n];
+	double h[s->n]; double dy[s->n]; // Defining variables used for simplifying the spline paramater calcualtions.
 	for (int i=0;i<n-1;i++){
 		h[i]=x[i+1]-x[i];
 		dy[i]=y[i+1]-y[i];}
 
 
-	for(int i=0;i<n-1;i++)
+	for(int i=0;i<n-1;i++) // Finding d_i and c_i using the boundary condition shown on the final.pdf.
 	s->d[i]=pow(1+1/3,-1)*( (df[i+1]-df[i])*pow(3*pow(h[i],2),-1) - pow(3*pow(h[i],3),-1)*(dy[i]-df[i]*h[i]));
-
         for(int i=0;i<n-1;i++)  s->c[i]=(dy[i]-df[i]*h[i] - s->d[i]*pow(h[i],3))*pow(h[i],-2);
 
 	return s;
-
 }
-double ospline_eval(ospline * s, double z){
+double ospline_eval(ospline * s, double z){ //Evaluate spline at point z.
 	int i = binsearchospl(s->n,z,s);
 	double h=z-s->x[i];
 	return s->y[i]+h*s->df[i]+h*h*s->c[i]+h*h*h*s->d[i];
 }
 
-double ospline_deriv(ospline* s, double z){//calculates the derivative of the ospline.
+double ospline_deriv(ospline* s, double z){//calculates the derivative of the spline at z.
 	int i = binsearchospl(s->n,z,s);
 	double h=z-s->x[i];
 	return s->df[i]+2*s->c[i]*h+3*s->d[i]*h*h;
 }
 
-double ospline_deriv2(ospline* s, double z){//calculates the second derivative of the ospline.
+double ospline_deriv2(ospline* s, double z){//calculates the second derivative of the spline at z.
 	int i = binsearchospl(s->n,z,s);
 	double h=z-s->x[i];
 	return 2*s->c[i]+6*s->d[i]*h;
 }
 
-double ospline_integ(ospline* s, double z){//calculates the derivative of the cspline.
+double ospline_integ(ospline* s, double z){//calculates the derivative of the spline from 0 to z.
 	int i = binsearchospl(s->n,z,s);
 
 	double sum=0;
@@ -59,11 +58,12 @@ double ospline_integ(ospline* s, double z){//calculates the derivative of the cs
 		sum=sum+yk*dx+bk*0.5*dx*dx+ ck*dx*dx*dx/3+ dk*dx*dx*dx*dx/4;}
 	double dxi=z-s->x[i];
 	sum+= s->y[i]*dxi+s->df[i]*0.5*dxi*dxi + s->c[i]*dxi*dxi*dxi/3 + s->d[i]*dxi*dxi*dxi*dxi/4;
+	// last integral taken seperately.
 	return sum;
 }
 
 
-void ospline_free(ospline * s){
+void ospline_free(ospline * s){//free stuff.
 	free(s->x);
 	free(s->y);
 	free(s->df);

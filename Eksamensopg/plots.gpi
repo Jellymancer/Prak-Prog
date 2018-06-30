@@ -5,7 +5,7 @@
         set ylabel 'y';\
         set key right top;\
         set tics out;\
-        set title 'Manual data set, derivatives from quadratic spline';\
+        set title 'Manual data set, derivatives tabulated manually';\
         plot 'manual.dat' i 0 using 1:2 with points title 'discrete points'\
         ,'manual.dat' i 2 using 1:3 with lines dt 2 title 'cspline'\
         ,'manual.dat' i 2 using 1:2 with lines lt rgb "red" title 'aspline'\
@@ -17,7 +17,7 @@
         set ylabel 'y';\
         set key right top;\
         set tics out;\
-        set title 'Manual data set with manual derivatives';\
+        set title 'Manual data set, derivatives from quadratic spline';\
         plot 'manual.dat' i 1 using 1:2 with points title 'discrete points'\
         ,'manual.dat' i 3 using 1:3 with lines dt 2 title 'cspline'\
         ,'manual.dat' i 3 using 1:2 with lines lt rgb "red"  title 'aspline'\
