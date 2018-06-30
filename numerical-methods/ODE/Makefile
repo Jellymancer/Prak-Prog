@@ -4,6 +4,7 @@ LDLIBS += `gsl-config --libs`
 all: out.txt as1.svg plotairy.svg
 	cat out.txt
 	xdg-open as1.svg
+	xdg-open as1_2.svg
 	xdg-open plotairy.svg
 
 as1.svg: out.txt Makefile
@@ -16,8 +17,21 @@ as1.svg: out.txt Makefile
         set key out;\
         set title "Fig1: Solution to dydx=3x+4" ;\
 	plot "as1ana.txt" using 1:2 title "Analytical y(x)" with points,\
-	"as1.txt" using 1:2 with lines title "Numerical y(x)";\
+	"as1.txt" i 0 using 1:2 with lines title "Numerical y(x)";\
 	'|gnuplot
+
+	echo '\
+        set term svg size 800,600 background rgb "white";\
+        set out "as1_2.svg";\
+        set xlabel "x";\
+        set ylabel "y";\
+        set tics out;\
+        set key out;\
+        set title "Fig2: Solution to dydx=3x+4, with lower initial stepsize and tolerances." ;\
+	plot "as1.txt" i 1 using 1:2 title "Numerical y(x)" with points;\
+	'|gnuplot
+
+
 
 plotairy.svg: out.txt Makefile
 	echo '\
@@ -27,7 +41,7 @@ plotairy.svg: out.txt Makefile
         set ylabel "y";\
         set tics out;\
         set key out;\
-        set title "Fig 2: Airy equation solution" ;\
+        set title "Fig 3: Airy equation solution" ;\
         plot "airy.txt" using 1:2 with lines title "Numeric-Airy_B",\
 	"GSLairy.txt" using 1:3 with points title "GSL-airy_B";\
         '|gnuplot

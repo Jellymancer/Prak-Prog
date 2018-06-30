@@ -1,16 +1,17 @@
 Assignment 1: ODE using Runge-Kutta midpoint method
 Testing the algorythm on a simple differential equation: dy/dx = 3x+4 which has an analytic solution y= 3/2 x² + 4x + c.
-Setting startpoint x=0 and dydx=0 so that c=0.
+Setting startpoint x=-50 and dydx=3/2*50²-200 so that c=0.
 I also set the end point to be x_end = 50. The analytical solution at this point gives y(50)=3950.
 The obtained numerical solution is: y(50)=3950.000000.
-The number of iterations made is: 587
+The number of iterations made is: 2078
 
 
 Assignment 2: Storing the path.
  Using the same function, the algorythm is performed again, this time the points calcutated along the way to x=50 are stored.
 The numerical and analytical solutions are shown in figure 1
+The numerical solution alone is plotted in figure 2 using a lower initial step size and tolerances. It can be seem that steps become denser close to 0 where the derivative changes rapidly.
 
-Now I solve the differential equation d²y/dx² -xy = 0. The solution to this equation are the airy function.
+Now I solve the differential equation d²y/dx² -xy = 0. The solution to this equation are the airy functions.
 The equation is split into dy1/dx=y2 and dy2/dx =xy1
 Two functions solve this equations the Ai and Bi airy functions.
-I use the Bi starting values (from wikipedia) so the program should find Bi. The numeric solution is plotted together with the Bi from GSL in figure 2
+I use the Bi starting values (from wikipedia) so the program should find Bi. The numeric solution is plotted together with the Bi from GSL in figure 3

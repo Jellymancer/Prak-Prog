@@ -19,12 +19,12 @@ printf("Assignment 1: ODE using Runge-Kutta midpoint method\nTesting the algoryt
 int n=1; // size. Has to be equal to number of equations to solve.
 gsl_vector* yx=gsl_vector_alloc(n);
 
-double x_start=0; // startpoint x
-double step = 0.01; //stepsize
-double y0start=0; // start values for the dy/dx.
+double x_start=-50; // startpoint x
+double step = 0.1; //stepsize
+double y0start=3*(50*50)*0.5-4*50; // start values for the dy/dx.
 int max=10000; //max no of iterations.
 gsl_vector_set(yx,0,y0start);
-printf("Setting startpoint x=0 and dydx=0 so that c=0.\n");
+printf("Setting startpoint x=-50 and dydx=3/2*50²-200 so that c=0.\n");
 double abstol=0.001, reltol=0.001, x_end=50; //  absolute tolerance, relative tolerance and end points
 
 
@@ -35,12 +35,22 @@ printf("The number of iterations made is: %d\n",iter);
 
 printf("\n\nAssignment 2: Storing the path.\n Using the same function, the algorythm is performed again, this time the points calcutated along the way to x=50 are stored.\n");
 printf("The numerical and analytical solutions are shown in figure 1");
+printf("\nThe numerical solution alone is plotted in figure 2 using a lower initial step size and tolerances. It can be seem that steps become denser close to 0 where the derivative changes rapidly.");
 gsl_matrix* xypath=gsl_matrix_alloc(max,n+1);
-x_start=0;  gsl_vector_set(yx,0,y0start);
-iter = driverwpath(x_start,x_end,step,yx,abstol,reltol,max,rkstepX,f_trial,xypath,1);
+gsl_matrix* xypathL=gsl_matrix_alloc(max,n+1);
+
+x_start=-50;  gsl_vector_set(yx,0,y0start);
+iter = driverwpath(x_start,x_end,step*100,yx,abstol,reltol,max,rkstepX,f_trial,xypath,1);
 FILE* as1; as1=fopen("as1.txt","w");
 gsl_matrix_view xycutpath=gsl_matrix_submatrix(xypath,0,0,iter,n+1);
 printm(&xycutpath.matrix,as1);
+fprintf(as1,"\n\n");
+
+gsl_vector_set(yx,0,y0start);
+x_start=-50;  gsl_vector_set(yx,0,y0start);
+iter = driverwpath(x_start,x_end,step,yx,abstol*100,reltol*100,max,rkstepX,f_trial,xypathL,1);
+gsl_matrix_view xycutpathL=gsl_matrix_submatrix(xypathL,0,0,iter,n+1);
+printm(&xycutpathL.matrix,as1);
 fclose(as1);
 FILE* as1ana; as1ana=fopen("as1ana.txt","w"); // analytical solution to the teste diff equation is printed
 for(double w=x_start ;w<=x_end; w+=2){
@@ -52,9 +62,9 @@ fclose(as1ana);
 
 
 // Airy functions
-printf("\n\nNow I solve the differential equation d²y/dx² -xy = 0. The solution to this equation are the airy function.\n");
+printf("\n\nNow I solve the differential equation d²y/dx² -xy = 0. The solution to this equation are the airy functions.\n");
 printf("The equation is split into dy1/dx=y2 and dy2/dx =xy1\nTwo functions solve this equations the Ai and Bi airy functions.\n");
-printf("I use the Bi starting values (from wikipedia) so the program should find Bi. The numeric solution is plotted together with the Bi from GSL in figure 2\n");
+printf("I use the Bi starting values (from wikipedia) so the program should find Bi. The numeric solution is plotted together with the Bi from GSL in figure 3\n");
 
 n=2;
 gsl_vector* yxairy=gsl_vector_alloc(n);
